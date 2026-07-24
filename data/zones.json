@@ -1,0 +1,50 @@
+[
+  {
+    "id": "tabarka",
+    "name": "Tabarka",
+    "lat": 36.9544,
+    "lon": 8.7581,
+    "type": "coastal_forest",
+    "neighbors": ["ain_draham", "bulla_regia"]
+  },
+  {
+    "id": "ain_draham",
+    "name": "Aïn Draham",
+    "lat": 36.7756,
+    "lon": 8.6836,
+    "type": "forest",
+    "neighbors": ["tabarka", "bulla_regia"]
+  },
+  {
+    "id": "bulla_regia",
+    "name": "Bulla Regia",
+    "lat": 36.5567,
+    "lon": 8.7583,
+    "type": "archaeological",
+    "neighbors": ["ain_draham", "dougga"]
+  },
+  {
+    "id": "dougga",
+    "name": "Dougga",
+    "lat": 36.4225,
+    "lon": 9.2189,
+    "type": "archaeological",
+    "neighbors": ["bulla_regia", "ichkeul"]
+  },
+  {
+    "id": "ichkeul",
+    "name": "Ichkeul",
+    "lat": 37.1235,
+    "lon": 9.6548,
+    "type": "wetland",
+    "neighbors": ["tabarka", "hammamet"]
+  },
+  {
+    "id": "hammamet",
+    "name": "Hammamet",
+    "lat": 36.4000,
+    "lon": 10.6167,
+    "type": "coastal",
+    "neighbors": ["dougga", "ichkeul"]
+  }
+]

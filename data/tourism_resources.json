@@ -1,0 +1,170 @@
+{
+  "destinations": [
+    {
+      "id": "sidi_bou_said",
+      "name": "Sidi Bou Said",
+      "zone_id": "tunis",
+      "type": "village",
+      "lat": 36.871,
+      "lon": 10.342,
+      "description": "Iconic blue-and-white clifftop village with stunning sea views",
+      "activities": ["walking", "cafes", "art galleries", "photography", "museums"],
+      "amenities": {"hotels": 3, "restaurants": 12, "hospitals": 1},
+      "image_tag": "blue_white_village",
+      "region": "Greater Tunis"
+    },
+    {
+      "id": "carthage",
+      "name": "Carthage",
+      "zone_id": "tunis",
+      "type": "archaeological_site",
+      "lat": 36.858,
+      "lon": 10.323,
+      "description": "UNESCO World Heritage ancient Phoenician and Roman ruins",
+      "activities": ["history", "archaeology", "museums", "guided tours"],
+      "amenities": {"hotels": 5, "restaurants": 8, "hospitals": 2},
+      "image_tag": "roman_ruins",
+      "region": "Greater Tunis"
+    },
+    {
+      "id": "djerba_beach",
+      "name": "Djerba — Sidi Mahrez Beach",
+      "zone_id": "djerba",
+      "type": "beach",
+      "lat": 33.875,
+      "lon": 10.932,
+      "description": "Crystal-clear Mediterranean waters on Tunisia's island paradise",
+      "activities": ["swimming", "windsurfing", "snorkelling", "beach sports"],
+      "amenities": {"hotels": 22, "restaurants": 30, "hospitals": 1},
+      "image_tag": "mediterranean_beach",
+      "region": "South Islands"
+    },
+    {
+      "id": "dougga",
+      "name": "Dougga",
+      "zone_id": "beja",
+      "type": "archaeological_site",
+      "lat": 36.422,
+      "lon": 9.219,
+      "description": "Best-preserved Roman town in North Africa — UNESCO World Heritage",
+      "activities": ["history", "archaeology", "hiking", "photography"],
+      "amenities": {"hotels": 2, "restaurants": 3, "hospitals": 0},
+      "image_tag": "dougga_ruins",
+      "region": "Northwest"
+    },
+    {
+      "id": "ain_draham_forest",
+      "name": "Aïn Draham Forest",
+      "zone_id": "ain_draham",
+      "type": "nature",
+      "lat": 36.782,
+      "lon": 8.697,
+      "description": "Cork-oak forests in the Khroumirie mountains — cool mountain retreat",
+      "activities": ["hiking", "bird watching", "camping", "mountain biking"],
+      "amenities": {"hotels": 4, "restaurants": 6, "hospitals": 1},
+      "image_tag": "mountain_forest",
+      "region": "Northwest"
+    },
+    {
+      "id": "matmata",
+      "name": "Matmata Troglodyte Villages",
+      "zone_id": "tataouine",
+      "type": "cultural",
+      "lat": 33.544,
+      "lon": 9.971,
+      "description": "Underground Berber cave dwellings — filming location for Star Wars",
+      "activities": ["cultural visits", "star-gazing", "photography", "desert excursions"],
+      "amenities": {"hotels": 3, "restaurants": 5, "hospitals": 0},
+      "image_tag": "cave_dwellings",
+      "region": "Deep South"
+    },
+    {
+      "id": "hammamet_beach",
+      "name": "Hammamet Beach",
+      "zone_id": "nabeul",
+      "type": "beach",
+      "lat": 36.399,
+      "lon": 10.618,
+      "description": "Popular resort town with golden sand beaches and jasmine-scented medina",
+      "activities": ["swimming", "beach clubs", "water sports", "spa", "shopping"],
+      "amenities": {"hotels": 45, "restaurants": 60, "hospitals": 2},
+      "image_tag": "hammamet",
+      "region": "Cap Bon"
+    },
+    {
+      "id": "el_jem",
+      "name": "El Jem Amphitheatre",
+      "zone_id": "el_jem",
+      "type": "archaeological_site",
+      "lat": 35.296,
+      "lon": 10.706,
+      "description": "Third largest Roman amphitheatre in the world — UNESCO World Heritage",
+      "activities": ["history", "guided tours", "concerts", "photography"],
+      "amenities": {"hotels": 2, "restaurants": 8, "hospitals": 1},
+      "image_tag": "roman_amphitheatre",
+      "region": "Center"
+    },
+    {
+      "id": "tabarka_reef",
+      "name": "Tabarka Coral Reef",
+      "zone_id": "tabarka",
+      "type": "beach",
+      "lat": 36.955,
+      "lon": 8.756,
+      "description": "Pristine coral reefs and UNESCO Biosphere Reserve — top diving spot",
+      "activities": ["diving", "snorkelling", "jazz festival", "hiking", "bird watching"],
+      "amenities": {"hotels": 6, "restaurants": 15, "hospitals": 1},
+      "image_tag": "coral_reef",
+      "region": "Northwest Coast"
+    },
+    {
+      "id": "tozeur_oasis",
+      "name": "Tozeur Oasis & Chott el Jerid",
+      "zone_id": "tozeur",
+      "type": "nature",
+      "lat": 33.919,
+      "lon": 8.134,
+      "description": "Vast salt lake and date-palm oasis at the gateway to the Sahara",
+      "activities": ["camel trekking", "quad biking", "star-gazing", "oasis walks"],
+      "amenities": {"hotels": 8, "restaurants": 12, "hospitals": 1},
+      "image_tag": "sahara_oasis",
+      "region": "Southwest"
+    }
+  ],
+  "routes": [
+    {
+      "id": "route_a_ain_draham",
+      "name": "Route A — Aïn Draham via RN17",
+      "from": "beja",
+      "to": "ain_draham",
+      "distance_km": 68,
+      "time_min": 75,
+      "risk_zones": ["ain_draham"]
+    },
+    {
+      "id": "route_b_ain_draham",
+      "name": "Route B — Aïn Draham via Fernana",
+      "from": "beja",
+      "to": "ain_draham",
+      "distance_km": 82,
+      "time_min": 87,
+      "risk_zones": []
+    },
+    {
+      "id": "route_tunis_hammamet",
+      "name": "A1 — Tunis to Hammamet",
+      "from": "tunis",
+      "to": "nabeul",
+      "distance_km": 65,
+      "time_min": 55,
+      "risk_zones": []
+    }
+  ],
+  "festivals": [
+    {"name": "Tabarka Jazz Festival", "month": 7, "zone_id": "tabarka", "type": "music"},
+    {"name": "Dougga Roman Theatre Festival", "month": 7, "zone_id": "beja", "type": "culture"},
+    {"name": "El Jem International Symphonic Music Festival", "month": 7, "zone_id": "el_jem", "type": "music"},
+    {"name": "Hammamet International Festival", "month": 8, "zone_id": "nabeul", "type": "arts"},
+    {"name": "Sahara Festival Douz", "month": 12, "zone_id": "tozeur", "type": "culture"}
+  ]
+}

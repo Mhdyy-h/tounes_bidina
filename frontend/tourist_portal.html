@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunisia Guardian AI — Tourist Portal</title>
+  <meta name="description" content="Real-time AI-powered safety intelligence for tourists in Tunisia. Know before you go — fire, flood, water, electricity and tourism risks at a glance." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    /* Portal-specific overrides */
+    .two-col { display: grid; grid-template-columns: 1fr 380px; gap: 24px; }
+    @media(max-width:900px){ .two-col { grid-template-columns: 1fr; } }
+
+    #portal-map { height: 420px; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border); }
+
+    .tab-bar {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 5px;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .tab-btn.active { color: var(--accent); font-weight: 700; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; animation: fade-in 0.25s ease; }
+
+    .overall-score-ring {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background: conic-gradient(var(--green) 0%, var(--bg-surface) 0%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+      flex-shrink: 0;
+      box-shadow: 0 0 30px rgba(46,204,113,0.15);
+    }
+    .overall-score-ring .inner {
+      width: 80px; height: 80px;
+      background: var(--bg-card);
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .overall-score-val {
+      font-size: 22px; font-weight: 900;
+      letter-spacing: -1px; line-height: 1;
+    }
+    .overall-score-lbl {
+      font-size: 9px; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.05em;
+    }
+
+    .summary-row {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+
+    .summary-text { flex: 1; }
+    .summary-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+    .summary-desc  { font-size: 13px; color: var(--text-secondary); line-height: 1.5; }
+
+    .notif-counter {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(231,76,60,0.15); color: var(--red);
+      border: 1px solid rgba(231,76,60,0.3);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 12px; font-weight: 700;
+    }
+
+    .festival-card {
+      background: linear-gradient(135deg, rgba(155,89,182,0.1), rgba(155,89,182,0.05));
+      border: 1px solid rgba(155,89,182,0.25);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .festival-icon { font-size: 24px; }
+    .festival-name { font-size: 14px; font-weight: 700; }
+    .festival-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+    .planner-report {
+      background: var(--bg-base);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: none;
+    }
+    .planner-report.visible { display: block; animation: fade-up 0.4s ease; }
+
+    .report-header {
+      background: linear-gradient(135deg, var(--bg-card), var(--bg-surface));
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 16px;
+    }
+
+    .report-section {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .report-section:last-child { border-bottom: none; }
+    .report-section-title {
+      font-size: 12px; font-weight: 700; color: var(--text-muted);
+      text-transform: uppercase; letter-spacing: 0.06em;
+      margin-bottom: 12px; display: flex; align-items: center; gap: 6px;
+    }
+
+    .mini-agent-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+    }
+    .mini-agent-row:last-child { border-bottom: none; }
+
+    select, input[type="date"] {
+      appearance: none;
+      -webkit-appearance: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🛡 Tunisia Guardian AI</h1>
+      <div class="tagline">Multi-Agent Safety Intelligence for Tourists</div>
+    </div>
+    <nav>
+      <a href="/">← Risk Map</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/tourist-portal" class="nav-portal active">🌴 Tourist Portal</a>
+      <button id="lang-toggle" class="btn-lang">FR</button>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="portal-hero" id="hero-section">
+    <h2>Know Before You Go</h2>
+    <p class="hero-sub">Real-time AI intelligence from 7 specialized agents — fire, flood, water, electricity, tourism, emergency & XAI — protecting every step of your journey.</p>
+    <div id="global-banner" class="global-status-banner caution">
+      <span class="spinner" style="width:14px;height:14px;border-width:2px;"></span>
+      Analyzing all agents…
+    </div>
+  </section>
+
+  <div class="portal-layout">
+
+    <!-- Zone Selector -->
+    <section class="portal-section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">Select a Zone</div>
+          <div class="section-subtitle">Click a zone to load all agent analyses</div>
+        </div>
+      </div>
+      <div class="zone-selector" id="zone-selector">
+        <div class="skeleton" style="height:60px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:60px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:60px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:60px;border-radius:12px;"></div>
+      </div>
+    </section>
+
+    <!-- Zone Dashboard (loads after zone selection) -->
+    <div id="zone-dashboard" style="display:none;">
+
+      <!-- Summary Row -->
+      <div class="summary-row" id="summary-row">
+        <div class="overall-score-ring" id="score-ring">
+          <div class="inner">
+            <div class="overall-score-val" id="overall-val">–</div>
+            <div class="overall-score-lbl">Safety</div>
+          </div>
+        </div>
+        <div class="summary-text">
+          <div class="summary-title" id="summary-title">Loading…</div>
+          <div class="summary-desc" id="summary-desc">Running multi-agent analysis…</div>
+        </div>
+        <div id="notif-badge"></div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tab-bar">
+        <button class="tab-btn active" data-tab="agents">🤖 Agents</button>
+        <button class="tab-btn" data-tab="destinations">🏖 Destinations</button>
+        <button class="tab-btn" data-tab="planner">🗓 Trip Planner</button>
+        <button class="tab-btn" data-tab="alerts">🔔 Alerts</button>
+        <button class="tab-btn" data-tab="xai">🔍 Why?</button>
+      </div>
+
+      <!-- TAB: AGENTS -->
+      <div class="tab-panel active" id="tab-agents">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Agent Status Panel</div>
+            <div class="section-subtitle">7 specialized AI agents analyzing this zone in real-time</div>
+          </div>
+        </div>
+        <div class="portal-agent-grid" id="agent-cards-grid">
+          <!-- filled by JS -->
+        </div>
+
+        <!-- Map -->
+        <div style="margin-top:24px;">
+          <div class="section-header">
+            <div class="section-title">Risk Map</div>
+          </div>
+          <div id="portal-map"></div>
+        </div>
+      </div>
+
+      <!-- TAB: DESTINATIONS -->
+      <div class="tab-panel" id="tab-destinations">
+        <div id="festivals-row" style="margin-bottom:20px;display:none;">
+          <div class="section-header"><div class="section-title">🎵 Active Festivals This Month</div></div>
+          <div id="festivals-list" style="display:flex;flex-direction:column;gap:10px;"></div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="section-header">
+              <div>
+                <div class="section-title">Safe Destinations</div>
+                <div class="section-subtitle" id="dest-subtitle">Loading recommendations…</div>
+              </div>
+            </div>
+            <div class="destination-grid" id="dest-grid">
+              <!-- filled by JS -->
+            </div>
+            <div id="no-destinations" class="empty-state" style="display:none;">
+              <div class="empty-state-icon">🔍</div>
+              <p>No tourism destinations indexed for this zone yet.<br>Try a neighboring zone.</p>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-header"><div class="section-title">Smart Routing</div></div>
+            <div id="routing-list">
+              <div class="empty-state" style="padding:24px;">
+                <div class="empty-state-icon">🛣️</div>
+                <p>No route advisories for current conditions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: TRIP PLANNER -->
+      <div class="tab-panel" id="tab-planner">
+        <div class="card planner-card" style="max-width:100%;margin:0;">
+          <h2 style="font-size:16px;margin-bottom:18px;">🗓 Plan Your Visit</h2>
+          <div class="planner-form">
+            <div class="field" style="margin:0;">
+              <label for="planner-zone">Zone</label>
+              <select id="planner-zone"></select>
+            </div>
+            <div class="field" style="margin:0;">
+              <label for="planner-date">Visit Date</label>
+              <input type="date" id="planner-date" />
+            </div>
+            <button class="btn-submit" id="planner-submit" style="width:auto;white-space:nowrap;padding:11px 20px;">
+              Analyze →
+            </button>
+          </div>
+          <div class="field hint" style="font-size:11px;color:var(--text-muted);">
+            Real weather forecast available up to D+3. Beyond that, current conditions are used.
+          </div>
+        </div>
+
+        <div class="planner-report" id="planner-report" style="margin-top:20px;">
+          <div class="report-header">
+            <div class="overall-score-ring" id="report-ring" style="width:80px;height:80px;">
+              <div class="inner" style="width:58px;height:58px;">
+                <div class="overall-score-val" id="report-score" style="font-size:16px;">–</div>
+                <div class="overall-score-lbl">Risk</div>
+              </div>
+            </div>
+            <div>
+              <div style="font-size:16px;font-weight:800;" id="report-title">–</div>
+              <div style="font-size:13px;color:var(--text-secondary);margin-top:4px;" id="report-date-note">–</div>
+            </div>
+          </div>
+
+          <div class="report-section">
+            <div class="report-section-title">🤖 Multi-Agent Analysis</div>
+            <div id="report-agents" class="mini-agent-rows"></div>
+          </div>
+
+          <div class="report-section">
+            <div class="report-section-title">💬 AI Explanation (Fire Agent)</div>
+            <p id="report-explanation" style="font-size:13px;color:var(--text-secondary);line-height:1.6;"></p>
+            <div id="report-alternative" style="margin-top:10px;font-size:13px;font-weight:600;color:var(--green);"></div>
+          </div>
+
+          <div class="report-section" id="report-routing-section" style="display:none;">
+            <div class="report-section-title">🛣️ Smart Routing Advice</div>
+            <div id="report-routing-list"></div>
+          </div>
+
+          <div class="report-section">
+            <div class="report-section-title">📢 Active Alerts for Your Visit</div>
+            <div id="report-alerts" class="alerts-feed"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: ALERTS -->
+      <div class="tab-panel" id="tab-alerts">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Live Alerts Feed</div>
+            <div class="section-subtitle">Notifications from all 7 agents — all stakeholders</div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;" id="alerts-filter-bar">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="tourist">Tourists</button>
+            <button class="tab-btn" data-filter="hotel">Hotels</button>
+            <button class="tab-btn" data-filter="civil_protection">Civil Protection</button>
+            <button class="tab-btn" data-filter="municipality">Municipalities</button>
+          </div>
+        </div>
+        <div class="alerts-feed" id="alerts-list">
+          <div class="empty-state">
+            <div class="empty-state-icon">✅</div>
+            <p>No active alerts for this zone.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB: XAI (Why?) -->
+      <div class="tab-panel" id="tab-xai">
+        <div class="section-header">
+          <div>
+            <div class="section-title">Why These Predictions?</div>
+            <div class="section-subtitle">Factor-by-factor explainability for every AI decision</div>
+          </div>
+          <select id="xai-agent-selector" class="field" style="max-width:200px;padding:7px 10px;border-radius:8px;background:var(--bg-card);border:1px solid var(--border-strong);color:var(--text-primary);font-family:inherit;font-size:13px;">
+            <option value="fire">🔥 Fire Agent</option>
+            <option value="flood">🌊 Flood Agent</option>
+            <option value="water">💧 Water Agent</option>
+            <option value="electricity">⚡ Electricity Agent</option>
+          </select>
+        </div>
+
+        <div id="xai-content">
+          <div class="empty-state" style="padding:32px;">
+            <div class="empty-state-icon">🔍</div>
+            <p>Select a zone and agent to see the XAI breakdown.</p>
+          </div>
+        </div>
+      </div>
+    </div><!-- /zone-dashboard -->
+
+    <!-- Global Safe Destinations (always visible) -->
+    <hr class="divider" />
+    <section class="portal-section">
+      <div class="section-header">
+        <div>
+          <div class="section-title">🏖 All Safe Destinations in Tunisia</div>
+          <div class="section-subtitle">Based on current multi-agent analysis</div>
+        </div>
+      </div>
+      <div class="destination-grid" id="global-dest-grid">
+        <div class="skeleton" style="height:280px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:280px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:280px;border-radius:16px;"></div>
+        <div class="skeleton" style="height:280px;border-radius:16px;"></div>
+      </div>
+    </section>
+
+  </div><!-- /portal-layout -->
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/i18n.js"></script>
+  <script src="/static/tourist_portal.js"></script>
+</body>
+</html>

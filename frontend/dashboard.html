@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunisia Guardian AI — Operations Dashboard</title>
+  <meta name="description" content="Multi-agent operations dashboard for Tunisia Guardian AI — Ministry of Tourism and Civil Protection." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🛡 Tunisia Guardian AI</h1>
+      <div class="tagline" data-i18n="dashboardTagline">Operations Dashboard — Ministry of Tourism &amp; Civil Protection</div>
+    </div>
+    <nav>
+      <a href="/" data-i18n="navMap">← Map</a>
+      <a href="/tourist-portal" class="nav-portal">🌴 Tourist Portal</a>
+      <button id="lang-toggle" class="btn-lang">EN</button>
+    </nav>
+  </header>
+
+  <div class="dashboard">
+    <div class="dashboard-header">
+      <h2>Multi-Agent Intelligence Dashboard</h2>
+      <p>7 specialized AI agents monitoring Tunisia in real-time · <span id="last-update" style="color:var(--accent)">Loading…</span></p>
+    </div>
+
+    <!-- Platform Stats -->
+    <div class="stat-row" id="stat-row">
+      <div class="stat-card"><div class="stat-value" id="stat-total">–</div><div class="stat-label" data-i18n="statTotal">Zones monitored</div></div>
+      <div class="stat-card critical"><div class="stat-value" id="stat-critical">–</div><div class="stat-label" data-i18n="statCritical">Critical</div></div>
+      <div class="stat-card high"><div class="stat-value" id="stat-high">–</div><div class="stat-label" data-i18n="statHigh">High risk</div></div>
+      <div class="stat-card"><div class="stat-value" id="stat-avg">–</div><div class="stat-label" data-i18n="statAvg">Avg fire score</div></div>
+      <div class="stat-card"><div class="stat-value" id="stat-ndvi">–</div><div class="stat-label" data-i18n="statNdvi">Real NDVI zones</div></div>
+    </div>
+
+    <!-- Agent Overview Grid -->
+    <div style="margin-bottom:28px;">
+      <div class="section-header" style="margin-bottom:14px;">
+        <div>
+          <div class="section-title" style="font-size:16px;">Agent Health Overview</div>
+          <div class="section-subtitle" style="font-size:12px;color:var(--text-muted);">Current status across all intelligence agents</div>
+        </div>
+      </div>
+      <div class="agent-grid" id="agent-overview-grid">
+        <div class="skeleton" style="height:120px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:120px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:120px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:120px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:120px;border-radius:12px;"></div>
+        <div class="skeleton" style="height:120px;border-radius:12px;"></div>
+      </div>
+    </div>
+
+    <!-- Zone Risk Table -->
+    <div style="margin-bottom:14px;">
+      <div class="section-title" style="font-size:16px;font-weight:800;">Zone Risk Table</div>
+    </div>
+    <table class="dashboard-table">
+      <thead>
+        <tr>
+          <th data-i18n="tableZone">Zone</th>
+          <th data-i18n="tableRisk">🔥 Fire</th>
+          <th data-i18n="tableLevel">Level</th>
+          <th>🌊 Flood</th>
+          <th>💧 Water</th>
+          <th>⚡ Power</th>
+          <th data-i18n="tableTemp">Temp.</th>
+          <th data-i18n="tableWind">Wind</th>
+          <th data-i18n="tableHumidity">Humidity</th>
+          <th data-i18n="tableUpdated">Updated</th>
+        </tr>
+      </thead>
+      <tbody id="dashboard-body">
+        <tr><td colspan="10" class="loading-row">Loading agent data…</td></tr>
+      </tbody>
+    </table>
+
+    <p class="dashboard-footnote" data-i18n="dashboardFootnote">
+      Flood, water, and electricity columns use simulated data — clearly labeled. Fire risk uses live weather (Open-Meteo), satellite fire hotspots (NASA FIRMS), and NDVI (real MODIS where available). Agent count: 7 (Fire + Flood + Water + Electricity + Tourism + Emergency + XAI).
+    </p>
+  </div>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/dashboard.js"></script>
+</body>
+</html>

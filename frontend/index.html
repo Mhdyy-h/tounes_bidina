@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunisia Guardian AI — Risk Map</title>
+  <meta name="description" content="Real-time AI wildfire risk map for Tunisia — live satellite data, ML predictions, multi-agent intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🛡 Tunisia Guardian AI</h1>
+      <div class="tagline">Protecting People. Preserving Nature. Powering Tourism.</div>
+    </div>
+    <nav>
+      <a href="/dashboard" data-i18n="navDashboard">Dashboard</a>
+      <a href="/tourist-portal" class="nav-portal" data-i18n="navPortal">🌴 Tourist Portal</a>
+      <button id="lang-toggle" class="btn-lang">EN</button>
+    </nav>
+  </header>
+
+  <div class="controls">
+    <button class="btn-danger" id="trigger-scenario" data-i18n="triggerScenario">🔥 Trigger fire scenario (Aïn Draham)</button>
+    <button class="btn-reset" id="reset-scenario" data-i18n="resetScenario">↺ Reset scenario</button>
+    <button class="btn-reset" id="refresh-ndvi" data-i18n="refreshNdvi" title="Fetches real MODIS NDVI from NASA Earthdata (takes several minutes)">🛰️ Refresh satellite NDVI</button>
+    <span id="ndvi-status" class="ndvi-status">NDVI: checking…</span>
+    <span id="connection-status" class="ndvi-status">🟡 Connecting…</span>
+    <div class="legend">
+      <span><i style="background:#2ecc71"></i> <span data-i18n="legendLow">Low</span></span>
+      <span><i style="background:#f1c40f"></i> <span data-i18n="legendMedium">Medium</span></span>
+      <span><i style="background:#e67e22"></i> <span data-i18n="legendHigh">High</span></span>
+      <span><i style="background:#e74c3c"></i> <span data-i18n="legendCritical">Critical</span></span>
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/i18n.js"></script>
+  <script src="/static/map.js"></script>
+</body>
+</html>

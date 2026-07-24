@@ -1,0 +1,30 @@
+{
+  "fetched_at": "2026-07-24T16:20:25.353150+00:00",
+  "source": "NASA Earthdata / AppEEARS, MOD13Q1.061 250m 16-day NDVI composite",
+  "zones": {
+    "ain_draham": {
+      "ndvi": 0.57,
+      "composite_date": "2026-06-26"
+    },
+    "bulla_regia": {
+      "ndvi": 0.307,
+      "composite_date": "2026-06-26"
+    },
+    "dougga": {
+      "ndvi": 0.286,
+      "composite_date": "2026-06-26"
+    },
+    "hammamet": {
+      "ndvi": 0.189,
+      "composite_date": "2026-06-26"
+    },
+    "ichkeul": {
+      "ndvi": 0.608,
+      "composite_date": "2026-06-26"
+    },
+    "tabarka": {
+      "ndvi": 0.215,
+      "composite_date": "2026-06-26"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunisia Guardian AI — Tourist Safety Check</title>
+  <meta name="description" content="Check if a zone in Tunisia is safe to visit today — AI-powered risk assessment with multi-agent intelligence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .tourist-wrapper {
+      min-height: calc(100vh - 62px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(59,158,255,0.06) 0%, transparent 60%);
+    }
+    .portal-cta {
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(135deg, rgba(59,158,255,0.08), rgba(59,158,255,0.03));
+      border: 1px solid rgba(59,158,255,0.2);
+      border-radius: var(--radius-md);
+      margin-bottom: 24px;
+    }
+    .portal-cta p { font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; }
+    .portal-cta a {
+      display: inline-block;
+      background: linear-gradient(135deg, #3b9eff, #1668cc);
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .portal-cta a:hover { opacity: 0.88; }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🛡 Tunisia Guardian AI</h1>
+      <div class="tagline">Protecting People. Preserving Nature. Powering Tourism.</div>
+    </div>
+    <nav>
+      <a href="/" data-i18n="navMap">← Map</a>
+      <a href="/dashboard" data-i18n="navDashboard">Dashboard</a>
+      <a href="/tourist-portal" class="nav-portal">🌴 Tourist Portal</a>
+      <button id="lang-toggle" class="btn-lang">EN</button>
+    </nav>
+  </header>
+
+  <div class="tourist-wrapper">
+    <div class="card tourist-card">
+      <div class="portal-cta">
+        <p>✨ New: Full Multi-Agent Tourist Portal with destinations, routing & live alerts</p>
+        <a href="/tourist-portal">Open Tourist Portal →</a>
+      </div>
+
+      <h2 data-i18n="touristTitle">Can I visit this area?</h2>
+      <form id="tourist-form">
+        <div class="field">
+          <label for="zone" data-i18n="zoneLabel">Zone</label>
+          <select id="zone" required></select>
+        </div>
+        <div class="field">
+          <label for="date" data-i18n="dateLabel">Visit date</label>
+          <input type="date" id="date" required />
+          <div class="hint" data-i18n="dateHint">Real weather forecast up to D+3; beyond that, current conditions are used.</div>
+        </div>
+        <button type="submit" class="btn-submit" data-i18n="submitBtn">Check</button>
+      </form>
+
+      <div class="result" id="result">
+        <span class="badge" id="badge"></span>
+        <p id="date-note" class="date-note"></p>
+        <p id="explanation"></p>
+        <p id="alternative"></p>
+        <div class="xp" id="xp"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/tourist.js"></script>
+</body>
+</html>
