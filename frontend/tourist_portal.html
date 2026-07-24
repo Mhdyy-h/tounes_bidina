@@ -155,12 +155,6 @@
       <h1>🛡 Tunisia Guardian AI</h1>
       <div class="tagline">Multi-Agent Safety Intelligence for Tourists</div>
     </div>
-    <nav>
-      <a href="/">← Risk Map</a>
-      <a href="/dashboard">Dashboard</a>
-      <a href="/tourist-portal" class="nav-portal active">🌴 Tourist Portal</a>
-      <button id="lang-toggle" class="btn-lang">FR</button>
-    </nav>
   </header>
 
   <!-- Hero -->
@@ -355,6 +349,11 @@
           </div>
           <div id="route-result" style="margin-top:18px;display:none;"></div>
           <div id="route-map" style="height:280px;border-radius:var(--radius-md);margin-top:14px;display:none;"></div>
+          <div id="route-nav-controls" style="margin-top:10px;display:none;">
+            <button class="btn-reset" id="route-nav-start" style="width:auto;padding:9px 16px;">📍 Start live navigation</button>
+            <button class="btn-reset" id="route-nav-stop" style="width:auto;padding:9px 16px;display:none;">⏹ Stop navigation</button>
+            <span id="route-nav-status" class="hint" style="margin-left:8px;"></span>
+          </div>
         </div>
       </div>
 
@@ -426,6 +425,7 @@
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="/static/i18n.js"></script>
+  <script src="/static/sidebar.js"></script>
   <script src="/static/tourist_portal.js"></script>
 </body>
 </html>

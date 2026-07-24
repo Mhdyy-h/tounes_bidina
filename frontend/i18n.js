@@ -1,8 +1,10 @@
 const TRANSLATIONS = {
   fr: {
     navDashboard: "Tableau de bord",
-    navTourist: "Espace touriste →",
-    navMap: "← Carte",
+    navTourist: "Espace touriste (simple)",
+    navPortal: "Portail touriste",
+    navHotel: "Portail hôtelier",
+    navMap: "Carte",
     triggerScenario: "🔥 Déclencher scénario incendie (Aïn Draham)",
     resetScenario: "↺ Réinitialiser",
     refreshNdvi: "🛰️ Actualiser NDVI satellite",
@@ -42,8 +44,10 @@ const TRANSLATIONS = {
   },
   en: {
     navDashboard: "Dashboard",
-    navTourist: "Tourist area →",
-    navMap: "← Map",
+    navTourist: "Tourist area (simple)",
+    navPortal: "Tourist Portal",
+    navHotel: "Hotel Portal",
+    navMap: "Map",
     triggerScenario: "🔥 Trigger fire scenario (Aïn Draham)",
     resetScenario: "↺ Reset",
     refreshNdvi: "🛰️ Refresh satellite NDVI",

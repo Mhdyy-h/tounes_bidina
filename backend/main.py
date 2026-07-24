@@ -855,19 +855,32 @@ def _resolve_route_point(point_id: str, zones_by_id: dict[str, Zone]) -> tuple[f
 
 
 @app.get("/api/route/plan", response_model=RoutePlanResponse)
-async def api_route_plan(origin: str, destination: str):
+async def api_route_plan(
+    origin: str,
+    destination: str,
+    origin_lat: float | None = None,
+    origin_lon: float | None = None,
+):
     """
-    Real road routing (OSRM) between two points - each is either a zone_id
-    (see /api/zones) or an airport id (see /api/route/airports) - with
-    hazard-aware alternative selection. `origin`/`destination` are real
-    coordinates; the "safest path" logic that picks between OSRM's real
-    alternative routes is documented in backend/route_planner.py.
+    Real road routing (OSRM) between two points, with hazard-aware alternative
+    selection. `destination` is a zone_id (see /api/zones) or an airport id
+    (see /api/route/airports). `origin` is normally the same, EXCEPT when
+    `origin_lat`/`origin_lon` are both given (e.g. the browser's real
+    Geolocation position) - then those coordinates are used directly and
+    `origin` is treated as just a display label (e.g. "current_location").
+    The "safest path" logic that picks between OSRM's real alternative
+    routes is documented in backend/route_planner.py.
     """
     zones_by_id = _zones_by_id()
-    o = _resolve_route_point(origin, zones_by_id)
+
+    if origin_lat is not None and origin_lon is not None:
+        o = (origin_lat, origin_lon, "Your location")
+    else:
+        o = _resolve_route_point(origin, zones_by_id)
+        if o is None:
+            raise HTTPException(status_code=404, detail=f"Unknown origin: {origin}")
+
     d = _resolve_route_point(destination, zones_by_id)
-    if o is None:
-        raise HTTPException(status_code=404, detail=f"Unknown origin: {origin}")
     if d is None:
         raise HTTPException(status_code=404, detail=f"Unknown destination: {destination}")
 

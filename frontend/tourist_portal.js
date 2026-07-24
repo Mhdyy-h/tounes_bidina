@@ -111,6 +111,18 @@ async function selectZone(zoneId) {
   document.getElementById("zone-dashboard").style.display = "block";
   showDashboardSkeleton();
 
+  // Leaflet computed its size while #zone-dashboard was display:none (0x0),
+  // so it never rendered correctly - now that the container is visible,
+  // force it to recompute. Called synchronously (not via requestAnimationFrame,
+  // which is paused for backgrounded/non-compositing tabs and would silently
+  // never fire) - invalidateSize() reads the DOM's current layout directly, so
+  // it doesn't need to wait for a paint. A short setTimeout backup covers any
+  // browser that hasn't finished applying the display change yet.
+  if (map) {
+    map.invalidateSize();
+    setTimeout(() => map.invalidateSize(), 100);
+  }
+
   try {
     dashboardData = await fetch(`/api/tourist/dashboard/${zoneId}`).then(r => r.json());
     allNotifications = dashboardData.notifications || [];
@@ -557,6 +569,11 @@ function switchTab(tabId) {
     const sel = document.getElementById("xai-agent-selector").value;
     renderXaiForAgent(sel);
   }
+
+  // Leaflet needs a resize nudge whenever its tab becomes visible again.
+  if (tabId === "agents" && map) {
+    map.invalidateSize();
+  }
 }
 
 // ─── Leaflet Map ──────────────────────────────────────────────────────────────
@@ -621,6 +638,9 @@ function updateMapWithRisks(data) {
 // ─── Smart Route Planner (real OSRM routing + hazard-aware selection) ────────
 let routeMap = null;
 let routeLayer = null;
+let userPositionMarker = null;
+let watchId = null;
+let lastRouteData = null;
 
 async function setupRoutePlanner() {
   const originSel = document.getElementById("route-origin");
@@ -631,10 +651,13 @@ async function setupRoutePlanner() {
     const airportsRes = await fetch("/api/route/airports");
     const airports = await airportsRes.json();
 
+    const locationOption = navigator.geolocation
+      ? `<option value="current_location">📍 My current location</option>`
+      : "";
     const airportOptions = airports.map((a) => `<option value="${a.id}">✈️ ${a.name}</option>`).join("");
     const zoneOptions = allZones.map((z) => `<option value="${z.id}">${z.name}</option>`).join("");
 
-    originSel.innerHTML = airportOptions + zoneOptions;
+    originSel.innerHTML = locationOption + airportOptions + zoneOptions;
     destSel.innerHTML = zoneOptions;
     if (allZones.length > 1) destSel.value = allZones[1].id;
   } catch (err) {
@@ -642,6 +665,29 @@ async function setupRoutePlanner() {
   }
 
   document.getElementById("route-submit").addEventListener("click", runRoutePlanner);
+  document.getElementById("route-nav-start").addEventListener("click", startLiveNavigation);
+  document.getElementById("route-nav-stop").addEventListener("click", stopLiveNavigation);
+}
+
+function getCurrentPosition() {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error("Geolocation is not supported by this browser."));
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+      (err) => {
+        const messages = {
+          1: "Location permission denied. Allow location access to use your current position.",
+          2: "Location unavailable right now.",
+          3: "Location request timed out.",
+        };
+        reject(new Error(messages[err.code] || "Could not get your location."));
+      },
+      { enableHighAccuracy: true, timeout: 10000 }
+    );
+  });
 }
 
 function hazardListHtml(hazards) {
@@ -659,21 +705,33 @@ async function runRoutePlanner() {
   const btn = document.getElementById("route-submit");
   const resultEl = document.getElementById("route-result");
   const mapEl = document.getElementById("route-map");
+  const navControls = document.getElementById("route-nav-controls");
 
   if (!origin || !destination) return;
 
   const originalLabel = btn.textContent;
   btn.disabled = true;
-  btn.textContent = "⏳ Routing…";
   resultEl.style.display = "none";
+  navControls.style.display = "none";
+  stopLiveNavigation();
 
   try {
-    const res = await fetch(`/api/route/plan?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`);
+    let url = `/api/route/plan?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
+
+    if (origin === "current_location") {
+      btn.textContent = "📍 Getting your location…";
+      const pos = await getCurrentPosition();
+      url += `&origin_lat=${pos.lat}&origin_lon=${pos.lon}`;
+    }
+
+    btn.textContent = "⏳ Routing…";
+    const res = await fetch(url);
     if (!res.ok) {
       const err = await res.json();
       throw new Error(err.detail || "Routing failed");
     }
     const data = await res.json();
+    lastRouteData = data;
 
     resultEl.style.display = "block";
     const chose = data.chose_alternative;
@@ -697,21 +755,134 @@ async function runRoutePlanner() {
     mapEl.style.display = "block";
     if (!routeMap) {
       routeMap = L.map("route-map");
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+      }).addTo(routeMap);
     }
+    routeMap.invalidateSize();
     if (routeLayer) {
       routeLayer.remove();
     }
     const coords = data.recommended_route.geometry.coordinates.map((c) => [c[1], c[0]]);
     routeLayer = L.polyline(coords, { color: "#3b9eff", weight: 4 }).addTo(routeMap);
     routeMap.fitBounds(routeLayer.getBounds(), { padding: [20, 20] });
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      attribution: "© OpenStreetMap contributors",
-    }).addTo(routeMap);
+
+    if (navigator.geolocation) {
+      navControls.style.display = "block";
+      document.getElementById("route-nav-status").textContent = "";
+    }
   } catch (err) {
     resultEl.style.display = "block";
     resultEl.innerHTML = `<div style="color:var(--red);">❌ ${err.message}</div>`;
   } finally {
     btn.disabled = false;
     btn.textContent = originalLabel;
+  }
+}
+
+// ─── Live GPS Navigation ──────────────────────────────────────────────────────
+// Not full turn-by-turn voice guidance - a live position marker on the planned
+// route, distance-remaining, and off-route detection (real haversine distance
+// from the actual OSRM route geometry, not a fake progress bar).
+const OFF_ROUTE_THRESHOLD_KM = 0.5;
+
+function haversineKm(lat1, lon1, lat2, lon2) {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) * Math.cos((lat2 * Math.PI) / 180) * Math.sin(dLon / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+
+function minDistanceToRoute(lat, lon, coords) {
+  let min = Infinity;
+  for (const [clat, clon] of coords) {
+    const d = haversineKm(lat, lon, clat, clon);
+    if (d < min) min = d;
+  }
+  return min;
+}
+
+function distanceRemainingKm(lat, lon, coords) {
+  let nearestIdx = 0;
+  let minD = Infinity;
+  coords.forEach((c, i) => {
+    const d = haversineKm(lat, lon, c[0], c[1]);
+    if (d < minD) {
+      minD = d;
+      nearestIdx = i;
+    }
+  });
+  let remaining = 0;
+  for (let i = nearestIdx; i < coords.length - 1; i++) {
+    remaining += haversineKm(coords[i][0], coords[i][1], coords[i + 1][0], coords[i + 1][1]);
+  }
+  return remaining;
+}
+
+function startLiveNavigation() {
+  if (!navigator.geolocation || !lastRouteData || !routeLayer) return;
+
+  const coords = lastRouteData.recommended_route.geometry.coordinates.map((c) => [c[1], c[0]]);
+  const statusEl = document.getElementById("route-nav-status");
+
+  document.getElementById("route-nav-start").style.display = "none";
+  document.getElementById("route-nav-stop").style.display = "inline-block";
+  statusEl.textContent = "🔴 Live tracking active…";
+  statusEl.style.color = "var(--text-secondary)";
+
+  watchId = navigator.geolocation.watchPosition(
+    (pos) => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+
+      if (!userPositionMarker) {
+        userPositionMarker = L.circleMarker([lat, lon], {
+          radius: 8,
+          color: "#fff",
+          weight: 2,
+          fillColor: "#3b9eff",
+          fillOpacity: 1,
+        }).addTo(routeMap);
+      } else {
+        userPositionMarker.setLatLng([lat, lon]);
+      }
+      routeMap.panTo([lat, lon]);
+
+      const offRouteDist = minDistanceToRoute(lat, lon, coords);
+      const remaining = distanceRemainingKm(lat, lon, coords);
+
+      if (offRouteDist > OFF_ROUTE_THRESHOLD_KM) {
+        statusEl.innerHTML = `⚠️ ${offRouteDist.toFixed(1)}km off the planned route — consider re-planning.`;
+        statusEl.style.color = "var(--orange)";
+      } else {
+        statusEl.innerHTML = `🔴 Live tracking · ~${remaining.toFixed(1)}km remaining`;
+        statusEl.style.color = "var(--text-secondary)";
+      }
+    },
+    (err) => {
+      statusEl.textContent = `❌ Tracking error: ${err.message}`;
+      statusEl.style.color = "var(--red)";
+    },
+    { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 }
+  );
+}
+
+function stopLiveNavigation() {
+  if (watchId !== null) {
+    navigator.geolocation.clearWatch(watchId);
+    watchId = null;
+  }
+  const startBtn = document.getElementById("route-nav-start");
+  const stopBtn = document.getElementById("route-nav-stop");
+  const statusEl = document.getElementById("route-nav-status");
+  if (startBtn) startBtn.style.display = "inline-block";
+  if (stopBtn) stopBtn.style.display = "none";
+  if (statusEl) statusEl.textContent = "";
+  if (userPositionMarker) {
+    userPositionMarker.remove();
+    userPositionMarker = null;
   }
 }
