@@ -23,6 +23,10 @@ RESERVOIR_LEVELS: dict[str, float] = {
     "tozeur":      22.0,  # Desert, critical
     "tataouine":   18.0,  # Deep south, critical
     "el_jem":      41.0,
+    "bulla_regia": 58.0,  # Medjerda valley, decent groundwater
+    "dougga":      55.0,  # Interior plateau, moderate
+    "ichkeul":     64.0,  # Adjacent to Lake Ichkeul / Bizerte water resources
+    "hammamet":    50.0,  # Coastal Nabeul governorate, similar to nabeul
 }
 
 # Tourism demand multiplier (high season = July)
@@ -37,6 +41,10 @@ TOURISM_DEMAND: dict[str, float] = {
     "tozeur":      1.1,
     "tataouine":   0.7,
     "el_jem":      1.0,
+    "bulla_regia": 0.9,   # Day-trip archaeological site, low overnight demand
+    "dougga":      1.0,   # Popular UNESCO day-trip site
+    "ichkeul":     0.7,   # Nature reserve, low overnight tourism
+    "hammamet":    2.3,   # One of Tunisia's largest beach resort towns
 }
 
 # Known leak/loss index per zone (0=none, 1=severe infrastructure loss)
@@ -51,6 +59,10 @@ LEAK_INDEX: dict[str, float] = {
     "tozeur":      0.28,
     "tataouine":   0.32,
     "el_jem":      0.20,
+    "bulla_regia": 0.30,  # Rural infrastructure
+    "dougga":      0.27,
+    "ichkeul":     0.24,
+    "hammamet":    0.19,  # Resort-town infrastructure, similar to nabeul
 }
 
 

@@ -1094,3 +1094,30 @@ button:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
   .zone-selector { grid-template-columns: repeat(2, 1fr); }
   .controls { flex-wrap: wrap; }
 }
+
+/* ─── Hotel Portal ───────────────────────────────────────────────── */
+.toggle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary, #c3d0da);
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: var(--bg-card, #16212c);
+  border: 1px solid var(--border, #263340);
+}
+
+.toggle input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

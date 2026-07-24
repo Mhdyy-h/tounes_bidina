@@ -18,6 +18,8 @@ import json
 DATA_DIR = Path(__file__).resolve().parent.parent.parent / "data"
 
 # Historical flood frequency per zone (0-1 scale, from historical records)
+# ain_draham/bulla_regia/dougga/tabarka are all in the Medjerda watershed region
+# (Jendouba/Beja governorates) - real flood history there (see beja's 0.55).
 HISTORICAL_FLOOD_FREQ: dict[str, float] = {
     "tunis":       0.25,
     "nabeul":      0.30,
@@ -29,6 +31,10 @@ HISTORICAL_FLOOD_FREQ: dict[str, float] = {
     "tozeur":      0.10,
     "tataouine":   0.08,
     "el_jem":      0.22,
+    "bulla_regia": 0.45,   # Medjerda valley floor near Jendouba - real flood-prone river valley
+    "dougga":      0.20,   # UNESCO hilltop site, ~571m elevation - naturally low flood exposure
+    "ichkeul":     0.35,   # Lake/wetland basin (Bizerte) - surrounding low ground floods, not the lake itself
+    "hammamet":    0.30,   # Coastal Nabeul governorate - same historical flood exposure as nabeul
 }
 
 # Terrain elevation class per zone: "low" | "mid" | "high"
@@ -43,6 +49,10 @@ TERRAIN_CLASS: dict[str, str] = {
     "tozeur":      "low",
     "tataouine":   "mid",
     "el_jem":      "low",
+    "bulla_regia": "low",   # Medjerda valley floor
+    "dougga":      "high",  # Hilltop/plateau site
+    "ichkeul":     "low",   # Lake basin
+    "hammamet":    "low",   # Coastal
 }
 
 # Drainage quality index per zone (0=poor,1=excellent)
@@ -57,6 +67,10 @@ DRAINAGE_INDEX: dict[str, float] = {
     "tozeur":      0.80,
     "tataouine":   0.75,
     "el_jem":      0.60,
+    "bulla_regia": 0.35,   # Rural, limited infrastructure investment
+    "dougga":      0.55,   # Elevated terrain aids natural runoff
+    "ichkeul":     0.45,   # Wetland buffers some, but surrounding roads poorly drained
+    "hammamet":    0.55,   # Resort-town infrastructure, similar to nabeul
 }
 
 
@@ -102,11 +116,15 @@ def _flooded_roads(zone_id: str, prob: float) -> list[str]:
     if prob < 30:
         return []
     road_map: dict[str, list[str]] = {
-        "ain_draham": ["RN17 Jendouba–Aïn Draham (km 34–47)", "RP62 Forest loop road"],
-        "beja":       ["GP6 Beja bypass", "MC57 rural connector"],
-        "tabarka":    ["RN7 coastal section", "RP71 bridge crossing"],
-        "tunis":      ["GP1 underpass (La Goulette)", "Boulevard du 7 Novembre (sector 3)"],
-        "nabeul":     ["GP1 Hammamet–Nabeul interchange"],
+        "ain_draham":  ["RN17 Jendouba–Aïn Draham (km 34–47)", "RP62 Forest loop road"],
+        "beja":        ["GP6 Beja bypass", "MC57 rural connector"],
+        "tabarka":     ["RN7 coastal section", "RP71 bridge crossing"],
+        "tunis":       ["GP1 underpass (La Goulette)", "Boulevard du 7 Novembre (sector 3)"],
+        "nabeul":      ["GP1 Hammamet–Nabeul interchange"],
+        "bulla_regia": ["MC59 Jendouba–Bulla Regia access road", "Medjerda river crossing"],
+        "dougga":      ["MC65 Téboursouk–Dougga approach road"],
+        "ichkeul":     ["RN11 Bizerte–Mateur lakeside section"],
+        "hammamet":    ["GP1 Hammamet–Nabeul interchange", "Avenue de la République (Hammamet centre)"],
     }
     roads = road_map.get(zone_id, [f"Secondary road in {zone_id.replace('_', ' ').title()}"])
     if prob >= 70:

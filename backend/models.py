@@ -287,3 +287,94 @@ class TouristDashboardResponse(BaseModel):
     emergency: dict
     notifications: list[dict]
     updated_at: str
+
+
+# ─── Hotel Resilience ──────────────────────────────────────────────────────────
+
+class HotelDeclaration(BaseModel):
+    zone_id: str
+    hotel_name: str
+    electricity_available: bool = True
+    water_available: bool = True
+    internet_available: bool = True
+    generator_available: bool = False
+    battery_backup: bool = False
+    solar_panels: bool = False
+    remaining_autonomy_hours: float | None = None
+    rooms_available: int | None = None
+    contact_email: str | None = None
+
+
+class HotelStatus(HotelDeclaration):
+    id: int
+    updated_at: str
+
+
+class ZoneResilienceSummary(BaseModel):
+    zone_id: str
+    zone_name: str
+    hotel_count: int
+    operational_pct: float
+    generator_coverage_pct: float
+    battery_coverage_pct: float
+    solar_coverage_pct: float
+    rooms_available: int
+
+
+class HotelResilienceStats(BaseModel):
+    total_hotels: int
+    operational_pct: float
+    generator_coverage_pct: float
+    battery_coverage_pct: float
+    solar_coverage_pct: float
+    rooms_available_in_safe_zones: int
+    zones: list[ZoneResilienceSummary]
+    most_resilient_zone_id: str | None
+    most_resilient_zone_name: str | None
+
+
+class HotelAlternative(BaseModel):
+    hotel_name: str
+    zone_id: str
+    zone_name: str
+    rooms_available: int | None
+
+
+class HotelAlternativeResponse(BaseModel):
+    requested_hotel: str
+    zone_id: str
+    found: bool
+    is_operational: bool | None
+    alternatives: list[HotelAlternative]
+    reason: str
+
+
+# ─── Smart Route Planner ───────────────────────────────────────────────────────
+
+class RoutePoint(BaseModel):
+    id: str
+    name: str
+
+
+class RouteHazard(BaseModel):
+    zone_name: str
+    risk_level: str
+    distance_km: float
+
+
+class RouteOption(BaseModel):
+    duration_min: float
+    distance_km: float
+    geometry: dict          # GeoJSON LineString, as returned by OSRM
+    hazards: list[RouteHazard]
+
+
+class RoutePlanResponse(BaseModel):
+    origin: RoutePoint
+    destination: RoutePoint
+    has_alternative: bool
+    chose_alternative: bool
+    default_route: RouteOption
+    recommended_route: RouteOption
+    extra_minutes: float
+    hazards_avoided: list[RouteHazard]

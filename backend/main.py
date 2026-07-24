@@ -19,7 +19,11 @@ from backend.agents.tourism_agent import compute_tourism_recommendation
 from backend.agents.emergency_agent import compute_emergency_plan
 from backend.agents.xai_agent import generate_xai
 from backend.agents.notification_agent import generate_notifications
+from backend import db
+from backend import email_client
+from backend.famma_dhaw_client import get_zone_outage_status
 from backend.firms_client import get_active_fires
+from backend.hotel_service import compute_resilience_stats, find_hotel_alternative
 from backend.llm_agent import explain_and_recommend
 from backend.ml_risk import compute_composite_risk, source_datasets_descriptor
 from backend.models import (
@@ -28,11 +32,16 @@ from backend.models import (
     EmergencyPlanResponse,
     FloodRiskResponse,
     ForecastDay,
+    HotelAlternativeResponse,
+    HotelDeclaration,
+    HotelResilienceStats,
+    HotelStatus,
     MLPrediction,
     NdviStatus,
     NdviZoneStatus,
     NotificationModel,
     RiskFactors,
+    RoutePlanResponse,
     ScenarioOverride,
     SourceDatasets,
     TouristDashboardResponse,
@@ -48,6 +57,7 @@ from backend.models import (
 )
 from backend.ndvi_cache import load_real_cache, refresh_real_ndvi
 from backend.risk_forecast import compute_forecast
+from backend.route_planner import AIRPORTS, plan_route
 from backend.weather_client import get_forecast, get_weather
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -55,6 +65,12 @@ DATA_DIR = BASE_DIR / "data"
 FRONTEND_DIR = BASE_DIR / "frontend"
 
 app = FastAPI(title="Tunisia Guardian AI — Multi-Agent Platform")
+
+
+@app.on_event("startup")
+async def _startup():
+    db.init_db()
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -199,6 +215,11 @@ async def serve_tourist_portal():
 @app.get("/dashboard")
 async def serve_dashboard():
     return FileResponse(FRONTEND_DIR / "dashboard.html")
+
+
+@app.get("/hotel-portal")
+async def serve_hotel_portal():
+    return FileResponse(FRONTEND_DIR / "hotel_portal.html")
 
 
 # ─── Existing Risk API ────────────────────────────────────────────────────────
@@ -429,11 +450,14 @@ async def api_electricity_agent(zone_id: str):
     zone = zones_by_id.get(zone_id)
     if zone is None:
         raise HTTPException(status_code=404, detail=f"Unknown zone_id: {zone_id}")
-    wx = await _get_zone_weather_simple(zone)
+    wx, real_outage = await asyncio.gather(
+        _get_zone_weather_simple(zone), get_zone_outage_status(zone.id)
+    )
     result = compute_electricity_risk(
         zone_id=zone.id,
         zone_name=zone.name,
         temperature_c=wx["temperature_c"],
+        real_outage=real_outage,
     )
     return asdict(result)
 
@@ -452,7 +476,8 @@ async def api_tourism_agent(zone_id: str):
 
     flood = compute_flood_risk(zone.id, zone.name, wx["rain_mm"], wx["humidity_pct"])
     water = compute_water_risk(zone.id, zone.name, wx["temperature_c"])
-    elec = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"])
+    real_outage = await get_zone_outage_status(zone.id)
+    elec = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"], real_outage=real_outage)
 
     result = compute_tourism_recommendation(
         zone_id=zone.id,
@@ -479,7 +504,8 @@ async def api_emergency_agent(zone_id: str):
 
     flood = compute_flood_risk(zone.id, zone.name, wx["rain_mm"], wx["humidity_pct"])
     water = compute_water_risk(zone.id, zone.name, wx["temperature_c"])
-    elec = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"])
+    real_outage = await get_zone_outage_status(zone.id)
+    elec = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"], real_outage=real_outage)
 
     result = compute_emergency_plan(
         zone_id=zone.id,
@@ -523,7 +549,8 @@ async def api_xai_agent(agent_type: str, zone_id: str):
         score = r.shortage_probability
         level = r.risk_level
     else:  # electricity
-        r = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"])
+        real_outage = await get_zone_outage_status(zone.id)
+        r = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"], real_outage=real_outage)
         factors = asdict(r.factors)
         score = r.outage_probability
         level = r.risk_level
@@ -546,7 +573,8 @@ async def api_notifications(zone_id: str):
 
     flood = compute_flood_risk(zone.id, zone.name, wx["rain_mm"], wx["humidity_pct"])
     water = compute_water_risk(zone.id, zone.name, wx["temperature_c"])
-    elec = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"])
+    real_outage = await get_zone_outage_status(zone.id)
+    elec = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"], real_outage=real_outage)
 
     notifications = generate_notifications(
         zone_id=zone.id,
@@ -572,16 +600,17 @@ async def api_tourist_dashboard(zone_id: str):
         raise HTTPException(status_code=404, detail=f"Unknown zone_id: {zone_id}")
 
     ndvi_values = scenario.read_ndvi()
-    fire_risk_obj, wx = await asyncio.gather(
+    fire_risk_obj, wx, real_outage = await asyncio.gather(
         _compute_zone_risk(zone, ndvi_values),
         _get_zone_weather_simple(zone),
+        get_zone_outage_status(zone.id),
     )
 
     # Run all secondary agents in parallel
     flood, water, elec = await asyncio.gather(
         asyncio.to_thread(compute_flood_risk, zone.id, zone.name, wx["rain_mm"], wx["humidity_pct"]),
         asyncio.to_thread(compute_water_risk, zone.id, zone.name, wx["temperature_c"]),
-        asyncio.to_thread(compute_electricity_risk, zone.id, zone.name, wx["temperature_c"]),
+        asyncio.to_thread(compute_electricity_risk, zone.id, zone.name, wx["temperature_c"], real_outage),
     )
 
     fire_score = float(fire_risk_obj.risk_score)
@@ -738,4 +767,221 @@ async def api_ndvi_status():
         "earthdata_credentials_configured": bool(
             os.getenv("EARTHDATA_USERNAME") and os.getenv("EARTHDATA_PASSWORD")
         ),
+    }
+
+
+# ─── Hotel Resilience Dashboard ────────────────────────────────────────────────
+
+@app.post("/api/hotels/declare", response_model=HotelStatus)
+async def api_hotel_declare(body: HotelDeclaration):
+    """Hotels self-report their own operational status. Upserts by
+    (zone_id, hotel_name) - re-declaring just updates the existing record."""
+    zones_by_id = _zones_by_id()
+    if body.zone_id not in zones_by_id:
+        raise HTTPException(status_code=404, detail=f"Unknown zone_id: {body.zone_id}")
+
+    record = db.upsert_hotel(body.zone_id, body.hotel_name, body.model_dump())
+    return HotelStatus(**record)
+
+
+@app.get("/api/hotels/{zone_id}", response_model=list[HotelStatus])
+async def api_hotels_for_zone(zone_id: str):
+    zones_by_id = _zones_by_id()
+    if zone_id not in zones_by_id:
+        raise HTTPException(status_code=404, detail=f"Unknown zone_id: {zone_id}")
+    return [HotelStatus(**h) for h in db.list_hotels(zone_id)]
+
+
+@app.delete("/api/hotels/{zone_id}/{hotel_name}")
+async def api_hotel_delete(zone_id: str, hotel_name: str):
+    deleted = db.delete_hotel(zone_id, hotel_name)
+    if not deleted:
+        raise HTTPException(status_code=404, detail="No such hotel declaration")
+    return {"ok": True}
+
+
+@app.get("/api/hotels/resilience/summary", response_model=HotelResilienceStats)
+async def api_hotels_resilience():
+    """Aggregate resilience stats across all declared hotels: % operational,
+    generator/battery/solar coverage, resilience by zone, available rooms in
+    zones currently at low/medium fire risk."""
+    hotels = db.list_hotels()
+    zones = [{"id": z.id, "name": z.name} for z in _load_zones()]
+    fire_risks = await _compute_all_risks()
+    zone_risk_by_id = {r.zone_id: r.risk_score for r in fire_risks}
+
+    stats = compute_resilience_stats(hotels, zones, zone_risk_by_id)
+    return HotelResilienceStats(**stats)
+
+
+@app.get("/api/hotels/alternative/{zone_id}/{hotel_name}", response_model=HotelAlternativeResponse)
+async def api_hotel_alternative(zone_id: str, hotel_name: str):
+    """'Instead of recommending a hotel currently experiencing a power outage,
+    the AI suggests nearby alternatives.' Checks the named hotel's declared
+    status; if it lacks electricity or water, searches the same zone first,
+    then neighboring zones, for an operational alternative."""
+    zones_by_id = _zones_by_id()
+    zone = zones_by_id.get(zone_id)
+    if zone is None:
+        raise HTTPException(status_code=404, detail=f"Unknown zone_id: {zone_id}")
+
+    all_hotels = db.list_hotels()
+    hotels_by_zone: dict[str, list[dict]] = {}
+    for h in all_hotels:
+        hotels_by_zone.setdefault(h["zone_id"], []).append(h)
+
+    zone_names = {z.id: z.name for z in _load_zones()}
+    result = find_hotel_alternative(
+        zone_id, hotel_name, hotels_by_zone, zone.neighbors, zone_names
+    )
+    return HotelAlternativeResponse(**result)
+
+
+# ─── Smart Tourist Route Planner ───────────────────────────────────────────────
+
+@app.get("/api/route/airports")
+async def api_route_airports():
+    return [{"id": k, **v} for k, v in AIRPORTS.items()]
+
+
+def _resolve_route_point(point_id: str, zones_by_id: dict[str, Zone]) -> tuple[float, float, str] | None:
+    if point_id in zones_by_id:
+        z = zones_by_id[point_id]
+        return z.lat, z.lon, z.name
+    if point_id in AIRPORTS:
+        a = AIRPORTS[point_id]
+        return a["lat"], a["lon"], a["name"]
+    return None
+
+
+@app.get("/api/route/plan", response_model=RoutePlanResponse)
+async def api_route_plan(origin: str, destination: str):
+    """
+    Real road routing (OSRM) between two points - each is either a zone_id
+    (see /api/zones) or an airport id (see /api/route/airports) - with
+    hazard-aware alternative selection. `origin`/`destination` are real
+    coordinates; the "safest path" logic that picks between OSRM's real
+    alternative routes is documented in backend/route_planner.py.
+    """
+    zones_by_id = _zones_by_id()
+    o = _resolve_route_point(origin, zones_by_id)
+    d = _resolve_route_point(destination, zones_by_id)
+    if o is None:
+        raise HTTPException(status_code=404, detail=f"Unknown origin: {origin}")
+    if d is None:
+        raise HTTPException(status_code=404, detail=f"Unknown destination: {destination}")
+
+    fire_risks = await _compute_all_risks()
+    hazard_zones = [
+        {"lat": r.lat, "lon": r.lon, "name": r.zone_name, "risk_level": r.risk_level}
+        for r in fire_risks
+        if r.risk_level in ("high", "critical")
+    ]
+
+    result = await plan_route(o[0], o[1], d[0], d[1], hazard_zones)
+    if result is None:
+        raise HTTPException(
+            status_code=502,
+            detail="Routing service (OSRM) unavailable right now - could not compute a real route.",
+        )
+
+    return RoutePlanResponse(
+        origin={"id": origin, "name": o[2]},
+        destination={"id": destination, "name": d[2]},
+        **result,
+    )
+
+
+# ─── Automatic Hotel Notifications (real email delivery) ─────────────────────
+
+def _build_notification_email_body(notif, zone: Zone) -> str:
+    map_url = "http://localhost:8000/"  # live risk map for this deployment
+    actions = "\n".join(f"  - {a}" for a in notif.actions)
+    return (
+        f"{notif.message}\n\n"
+        f"Risk level: {notif.severity.upper()}\n"
+        f"Zone: {zone.name}\n"
+        f"As of: {notif.timestamp}\n"
+        f"Source: {notif.agent_source}\n\n"
+        f"Recommended actions:\n{actions}\n\n"
+        f"Live risk map / current status: {map_url}\n\n"
+        "---\n"
+        "Tunisia Guardian AI - automated hazard monitoring.\n"
+        "This is an automated message from the multi-agent monitoring platform."
+    )
+
+
+@app.post("/api/notifications/send/{zone_id}")
+async def api_send_hotel_notifications(zone_id: str):
+    """
+    'When a hazard is predicted, hotels receive automatic email alerts.'
+    Computes current hazard notifications for the zone, and emails every
+    hotel that has declared a contact_email (via /api/hotels/declare) whose
+    stakeholder-targeted notification applies to hotels. Real SMTP send if
+    SMTP_HOST/SMTP_USERNAME/SMTP_PASSWORD are configured (see README); if
+    not, each notification is logged instead of sent, and the response says
+    so explicitly rather than claiming success.
+    """
+    zones_by_id = _zones_by_id()
+    zone = zones_by_id.get(zone_id)
+    if zone is None:
+        raise HTTPException(status_code=404, detail=f"Unknown zone_id: {zone_id}")
+
+    ndvi_values = scenario.read_ndvi()
+    fire_risk_obj, wx, real_outage = await asyncio.gather(
+        _compute_zone_risk(zone, ndvi_values),
+        _get_zone_weather_simple(zone),
+        get_zone_outage_status(zone.id),
+    )
+    flood = compute_flood_risk(zone.id, zone.name, wx["rain_mm"], wx["humidity_pct"])
+    water = compute_water_risk(zone.id, zone.name, wx["temperature_c"])
+    elec = compute_electricity_risk(zone.id, zone.name, wx["temperature_c"], real_outage)
+
+    notifications = generate_notifications(
+        zone.id, zone.name,
+        float(fire_risk_obj.risk_score), flood.flood_probability,
+        water.shortage_probability, elec.outage_probability, elec.active_outage,
+    )
+    hotel_notifs = [n for n in notifications if n.stakeholder == "hotel"]
+
+    if not hotel_notifs:
+        return {
+            "ok": True,
+            "smtp_configured": email_client.is_configured(),
+            "message": "No active hazard notifications for hotels in this zone right now.",
+            "sent": [],
+        }
+
+    hotels_with_email = [h for h in db.list_hotels(zone.id) if h.get("contact_email")]
+    if not hotels_with_email:
+        return {
+            "ok": True,
+            "smtp_configured": email_client.is_configured(),
+            "message": f"{len(hotel_notifs)} active hazard notification(s), but no hotels in "
+            "this zone have declared a contact email yet (see /hotel-portal).",
+            "sent": [],
+        }
+
+    results = []
+    for notif in hotel_notifs:
+        subject = f"[Tunisia Guardian AI] {notif.severity.upper()} - {notif.title}"
+        body = _build_notification_email_body(notif, zone)
+        for hotel in hotels_with_email:
+            send_result = email_client.send_notification_email(hotel["contact_email"], subject, body)
+            results.append(
+                {
+                    "hotel_name": hotel["hotel_name"],
+                    "to_email": hotel["contact_email"],
+                    "notification_title": notif.title,
+                    "severity": notif.severity,
+                    **send_result,
+                }
+            )
+
+    return {
+        "ok": True,
+        "smtp_configured": email_client.is_configured(),
+        "notifications_generated": len(hotel_notifs),
+        "hotels_notified": len(hotels_with_email),
+        "sent": results,
     }

@@ -17,6 +17,7 @@
     </div>
     <nav>
       <a href="/" data-i18n="navMap">← Map</a>
+      <a href="/hotel-portal">🏨 Hotel Portal</a>
       <a href="/tourist-portal" class="nav-portal">🌴 Tourist Portal</a>
       <button id="lang-toggle" class="btn-lang">EN</button>
     </nav>
@@ -79,7 +80,33 @@
       </tbody>
     </table>
 
-    <p class="dashboard-footnote" data-i18n="dashboardFootnote">
+    <!-- Hotel Resilience -->
+    <div style="margin:28px 0 14px;">
+      <div class="section-title" style="font-size:16px;font-weight:800;">🏨 Hotel Resilience</div>
+    </div>
+    <div class="stat-row" id="hotel-stat-row">
+      <div class="stat-card"><div class="stat-value" id="hstat-total">–</div><div class="stat-label">Declared hotels</div></div>
+      <div class="stat-card"><div class="stat-value" id="hstat-operational">–</div><div class="stat-label">% Operational</div></div>
+      <div class="stat-card"><div class="stat-value" id="hstat-generator">–</div><div class="stat-label">Generator coverage</div></div>
+      <div class="stat-card"><div class="stat-value" id="hstat-solar">–</div><div class="stat-label">Solar coverage</div></div>
+      <div class="stat-card"><div class="stat-value" id="hstat-rooms">–</div><div class="stat-label">Rooms available (safe zones)</div></div>
+    </div>
+
+    <!-- Automatic Hotel Notifications -->
+    <div style="margin:28px 0 14px;">
+      <div class="section-title" style="font-size:16px;font-weight:800;">📧 Automatic Hotel Notifications</div>
+      <div class="section-subtitle" style="font-size:12px;color:var(--text-muted);margin-top:4px;">
+        Sends real hazard alerts to every hotel that declared a contact email in the selected zone.
+      </div>
+    </div>
+    <div class="controls" style="padding:14px;border-radius:var(--radius-md);background:var(--bg-card);border:1px solid var(--border);">
+      <select id="notif-zone" style="padding:8px 12px;border-radius:var(--radius-sm);background:var(--bg-base);color:var(--text-primary);border:1px solid var(--border-strong);"></select>
+      <button class="btn-submit" id="notif-send" style="width:auto;padding:9px 16px;">Send Alerts Now</button>
+      <span id="notif-smtp-status" class="ndvi-status"></span>
+    </div>
+    <div id="notif-result" style="margin-top:12px;"></div>
+
+    <p class="dashboard-footnote" data-i18n="dashboardFootnote" style="margin-top:24px;">
       Flood, water, and electricity columns use simulated data — clearly labeled. Fire risk uses live weather (Open-Meteo), satellite fire hotspots (NASA FIRMS), and NDVI (real MODIS where available). Agent count: 7 (Fire + Flood + Water + Electricity + Tourism + Emergency + XAI).
     </p>
   </div>

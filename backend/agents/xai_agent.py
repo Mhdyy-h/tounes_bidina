@@ -53,6 +53,8 @@ HISTORICAL_FLOOD_INCIDENTS: dict[str, list[str]] = {
     "beja":    ["2018: Oued Medjerda overflow caused road closures for 3 days"],
     "ain_draham": ["Multiple seasonal flash floods along RN17 valley"],
     "nabeul":  ["2021: Coastal flooding of Hammamet Nord during autumn storms"],
+    "hammamet": ["2021: Coastal flooding of Hammamet Nord during autumn storms"],
+    "bulla_regia": ["Medjerda valley floor - shares the same flood-prone river system as Béja/Jendouba upstream"],
 }
 
 

@@ -2,12 +2,60 @@
 
 Protecting People. Preserving Nature. Powering Tourism.
 
-An AI-assisted wildfire risk platform for 6 Tunisian tourist zones: real-time weather
-(Open-Meteo, no key needed) + NASA FIRMS fire hotspots + real MODIS NDVI (NASA
-Earthdata) feed a **trained XGBoost wildfire classifier**, an Ollama LLM explains the
-score and recommends a safer neighboring zone (French/English), a real 3-day forecast
-projects risk forward, and a Leaflet map / tourist screen / Ministry dashboard surface
-it all live.
+An AI-assisted risk platform for 6 Tunisian tourist zones, built around a **7-agent
+system**: Fire (real ML), Flood, Water, Electricity, Tourism, Emergency, and an XAI
+agent that explains every prediction factor-by-factor. Real-time weather (Open-Meteo,
+no key needed), NASA FIRMS fire hotspots, real MODIS NDVI (NASA Earthdata), a real
+crowd-sourced electricity outage feed (Famma Dhaw), and real OSRM road routing feed a
+**trained XGBoost wildfire classifier** plus the other domain agents. A Leaflet map,
+tourist screen, full multi-agent tourist portal, hotel resilience portal, and Ministry
+operations dashboard surface it all live.
+
+## 0. What's new: the multi-agent platform (read this first)
+
+This build grew from a single-hazard (wildfire) MVP into a 7-agent operations
+platform. Everything below is real and independently verified, with the same
+honesty discipline as the original fire-risk work - simulated data is always
+labeled `is_simulated: true` and never silently presented as real.
+
+- **Zone-ID mismatch fixed.** The flood/water/electricity/emergency/XAI agents'
+  simulated lookup tables were originally keyed to a 10-city set that didn't match
+  this app's actual 6 zones (`tabarka`, `ain_draham`, `bulla_regia`, `dougga`,
+  `ichkeul`, `hammamet`) - only 2 of 6 zones had real entries, the other 4 silently
+  got generic fallback numbers. All 6 zones now have real, geographically-reasoned
+  entries (e.g. Dougga is correctly modeled as an elevated UNESCO hilltop site with
+  low flood risk; Ichkeul as a lake basin near Bizerte).
+- **Famma Dhaw electricity integration** (`backend/famma_dhaw_client.py`) - real,
+  live, crowd-sourced outage data for Tunisia, via the same public Supabase
+  endpoint their own website's frontend calls (no official API exists; this is
+  unofficial community data, always labeled as such - "cross-reference with
+  STEG" per their own disclaimer). 3 of 6 zones (`ain_draham`, `tabarka`,
+  `hammamet`) match exactly; the other 3 map to their nearest tracked
+  municipality, explicitly flagged as an approximation.
+- **Hotel Resilience Dashboard** (`/hotel-portal`) - the first real database in
+  this project (`backend/db.py`, SQLite). Hotels self-report electricity/water/
+  internet/generator/battery/solar/autonomy/rooms, which persists across
+  restarts. `GET /api/hotels/resilience/summary` aggregates: % operational,
+  generator/battery/solar coverage, most resilient zone, rooms available in
+  currently-safe zones. `GET /api/hotels/alternative/{zone}/{hotel}` implements
+  the exact requested behavior: if a hotel lacks power, it recommends an
+  operational alternative in the same zone, then neighboring zones.
+- **Smart Tourist Route Planner** (`backend/route_planner.py`) - real road
+  routing via OSRM's public API (no key), not a fake straight line. Requests
+  OSRM's real alternative-route feature, then picks whichever alternative's
+  actual road geometry passes farthest from zones currently at high/critical
+  fire risk. If OSRM has no genuine alternative for a given trip, that's
+  reported honestly rather than inventing one - verified live for several
+  origin/destination pairs, including one where a critical zone's proximity was
+  correctly detected but no real alternative existed.
+- **Automatic hotel email notifications** (`backend/email_client.py`) - real
+  SMTP sending, gated behind `SMTP_HOST`/`SMTP_USERNAME`/`SMTP_PASSWORD` you
+  must supply (same pattern as every other credential in this project). Without
+  them configured, every notification is logged in full instead of silently
+  dropped, and the API response says `"sent": false, "method": "log_only"`
+  rather than claiming success.
+- **French/English toggle** now covers this whole platform, not just the
+  original 3 pages.
 
 ## 1. Install
 
@@ -83,13 +131,23 @@ ollama serve
   NDVI stays simulated.
 - `FIRMS_API_KEY` — free MAP_KEY from https://firms.modaps.eosdis.nasa.gov/api/map_key/
   (just an email signup). Without it, active fire count defaults to 0.
-- Weather needs **no key** (Open-Meteo).
+- `SMTP_HOST` / `SMTP_PORT` (default 587) / `SMTP_USERNAME` / `SMTP_PASSWORD` /
+  `SMTP_FROM_EMAIL` — needed for real hotel hazard-alert emails (section 0). Any
+  standard SMTP provider works (Gmail app password, SendGrid, your own mail
+  server, etc.). Without these, notifications are logged in full instead of sent
+  — never silently dropped, never falsely reported as sent.
+- Weather needs **no key** (Open-Meteo). Famma Dhaw electricity data needs **no
+  key** (public endpoint). OSRM routing needs **no key** (public demo server).
 
 ```bash
 # Windows PowerShell
 $env:EARTHDATA_USERNAME = "your_username"
 $env:EARTHDATA_PASSWORD = "your_password"
 $env:FIRMS_API_KEY = "your_key_here"
+$env:SMTP_HOST = "smtp.gmail.com"
+$env:SMTP_USERNAME = "you@gmail.com"
+$env:SMTP_PASSWORD = "your_app_password"
+$env:SMTP_FROM_EMAIL = "you@gmail.com"
 ```
 
 ## 7. Run
@@ -100,9 +158,12 @@ uvicorn backend.main:app --reload
 
 - Map: http://localhost:8000/
 - Tourist screen: http://localhost:8000/tourist
-- Ministry dashboard: http://localhost:8000/dashboard
+- Full multi-agent tourist portal (destinations, route planner, alerts, XAI): http://localhost:8000/tourist-portal
+- Hotel resilience portal (declare status): http://localhost:8000/hotel-portal
+- Ministry operations dashboard: http://localhost:8000/dashboard
 - Full explainability for any zone: http://localhost:8000/api/predict/ain_draham
 - 3-day risk forecast for any zone: http://localhost:8000/api/forecast/ain_draham
+- Unified multi-agent dashboard for any zone: http://localhost:8000/api/tourist/dashboard/ain_draham
 - NDVI data-source status: http://localhost:8000/api/ndvi/status
 
 ## 8. Demo scenario
@@ -228,12 +289,23 @@ backend/
   llm_agent.py            Ollama explanation + recommendation (with fallback)
   scenario.py             weather/fire/NDVI factor overrides for the demo, real-vs-simulated NDVI resolution
   risk_forecast.py         3-day forecast: same ML scoring, real Open-Meteo forecast weather
-  models.py               Pydantic models
+  famma_dhaw_client.py     real crowd-sourced electricity outage data (Supabase, no official API)
+  db.py                    SQLite persistence - hotels table (the first real DB use case)
+  hotel_service.py         resilience aggregation + hazard-aware alternative-hotel logic
+  route_planner.py         real OSRM road routing + hazard-aware alternative-route selection
+  email_client.py          real SMTP delivery for hotel notifications, log-only fallback
+  models.py                Pydantic models
+  agents/
+    flood_agent.py water_agent.py electricity_agent.py    domain risk agents (simulated, labeled)
+    tourism_agent.py emergency_agent.py                     recommendation + resource allocation
+    xai_agent.py notification_agent.py                      explainability + stakeholder alerts
 frontend/
   index.html, map.js, style.css       risk map + demo scenario buttons + live ML popup + forecast strip
-  tourist.html, tourist.js            tourist query screen, date-aware (live/forecast/beyond-range)
-  dashboard.html, dashboard.js         Ministry dashboard - all zones, sorted, live, summary stats
-  i18n.js                              shared FR/EN dictionary + toggle, used by all 3 pages
+  tourist.html, tourist.js            simple tourist query screen, date-aware
+  tourist_portal.html, tourist_portal.js   full multi-agent portal - destinations, route planner, alerts, XAI
+  hotel_portal.html, hotel_portal.js   hotel self-declaration form + live status table
+  dashboard.html, dashboard.js         Ministry dashboard - agents, hotel resilience, notifications
+  i18n.js                              shared FR/EN dictionary + toggle, used by all pages
 ```
 
 ## 14. API endpoints
@@ -243,6 +315,21 @@ frontend/
 | GET | `/api/zones` | Static zone metadata |
 | GET | `/api/risk` | Composite risk score for all zones |
 | GET | `/api/risk/{zone_id}` | Same, single zone |
+| GET | `/api/agents/{flood\|water\|electricity}/{zone_id}` | Individual domain agent (simulated, labeled) |
+| GET | `/api/agents/tourism/{zone_id}` | Safe destinations, smart routing hints, festivals |
+| GET | `/api/agents/emergency/{zone_id}` | Resource allocation, intervention sequence |
+| GET | `/api/agents/xai/{fire\|flood\|water\|electricity}/{zone_id}` | Factor-by-factor explanation |
+| GET | `/api/agents/notifications/{zone_id}` | Stakeholder alerts for a zone |
+| GET | `/api/agents/status` | Global agent summary across all zones |
+| GET | `/api/tourist/dashboard/{zone_id}` | All 6 agents run in parallel, unified response |
+| GET | `/api/hotels/{zone_id}` | Declared hotels in a zone |
+| POST | `/api/hotels/declare` | Hotel self-reports operational status (upsert) |
+| DELETE | `/api/hotels/{zone_id}/{hotel_name}` | Remove a declaration |
+| GET | `/api/hotels/resilience/summary` | Aggregate resilience stats across all zones |
+| GET | `/api/hotels/alternative/{zone_id}/{hotel_name}` | Real hazard-aware alternative-hotel recommendation |
+| GET | `/api/route/airports` | Real airport coordinates for route planning |
+| GET | `/api/route/plan?origin=&destination=` | Real OSRM route + hazard-aware alternative selection |
+| POST | `/api/notifications/send/{zone_id}` | Sends (or logs) real hazard emails to declared hotels |
 | GET | `/api/risk/stream` | Server-Sent Events: pushes the full risk list every 5s |
 | GET | `/api/predict/{zone_id}` | Full explainability: prediction, confidence, explanation, timestamp, input features, source datasets |
 | GET | `/api/forecast/{zone_id}` | Real 3-day risk forecast (Open-Meteo forecast + same ML scoring) |

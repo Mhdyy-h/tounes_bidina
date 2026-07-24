@@ -73,32 +73,38 @@ def _tourist_density(zone_id: str, month: int) -> str:
 
 
 def _smart_routing(zone_id: str, fire_risk: float, flood_risk: float) -> list[dict]:
-    """Generate smart route recommendations based on hazard levels."""
+    """Illustrative route hints for our real 6 zones (previous version referenced
+    "beja"/"nabeul"/"tunis" as zone_id conditions, none of which exist in
+    zones.json - those branches were dead code that could never fire; fixed to
+    use real zone ids). For an ACTUAL computed route with real road geometry
+    and real alternative-route selection, see GET /api/route/plan
+    (backend/route_planner.py) - this function stays a lightweight, synchronous
+    hint generator consistent with the rest of this module."""
     routes = []
 
     if zone_id == "ain_draham" and fire_risk >= 50:
         routes.append({
-            "from": "Beja",
+            "from": "Béja",
             "to": "Aïn Draham",
-            "recommended_route": "Route B via Fernana (MC73)",
+            "recommended_route": "Route via Fernana (MC73)",
             "alternative_to": "RN17 direct",
             "extra_time_min": 12,
-            "reason": f"RN17 crosses fire risk zone (score {fire_risk:.0f}/100). Route B adds 12 min but avoids wildfire area.",
+            "reason": f"RN17 crosses fire risk zone (score {fire_risk:.0f}/100). Detour adds ~12 min but avoids the wildfire area.",
             "confidence": "high",
         })
 
-    if zone_id in ("beja", "ain_draham") and flood_risk >= 40:
+    if zone_id in ("ain_draham", "bulla_regia") and flood_risk >= 40:
         routes.append({
             "from": "Tunis",
-            "to": "Aïn Draham",
-            "recommended_route": "GP17 via Mateur (dry-road alternate)",
-            "alternative_to": "RN17 valley route",
+            "to": "Aïn Draham" if zone_id == "ain_draham" else "Bulla Regia",
+            "recommended_route": "GP17 via Mateur (higher-ground alternate)",
+            "alternative_to": "RN17 Medjerda valley route",
             "extra_time_min": 18,
             "reason": f"Valley roads may flood (flood probability {flood_risk:.0f}%). Mountain alternate stays on high ground.",
             "confidence": "medium",
         })
 
-    if zone_id == "nabeul" and flood_risk >= 30:
+    if zone_id == "hammamet" and flood_risk >= 30:
         routes.append({
             "from": "Tunis",
             "to": "Hammamet",

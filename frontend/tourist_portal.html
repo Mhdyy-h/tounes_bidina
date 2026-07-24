@@ -332,6 +332,30 @@
             <div id="report-alerts" class="alerts-feed"></div>
           </div>
         </div>
+
+        <div class="card" style="max-width:100%;margin:20px 0 0;">
+          <h2 style="font-size:16px;margin-bottom:6px;">🧭 Smart Route Planner</h2>
+          <p class="hint" style="margin-bottom:16px;">
+            Real road routing (OpenStreetMap/OSRM), checked against zones currently at
+            high/critical fire risk. If a genuine alternative route exists that avoids the
+            hazard, it's recommended over the default fastest route.
+          </p>
+          <div class="planner-form">
+            <div class="field" style="margin:0;">
+              <label for="route-origin">From</label>
+              <select id="route-origin"></select>
+            </div>
+            <div class="field" style="margin:0;">
+              <label for="route-destination">To</label>
+              <select id="route-destination"></select>
+            </div>
+            <button class="btn-submit" id="route-submit" style="width:auto;white-space:nowrap;padding:11px 20px;">
+              Plan Route →
+            </button>
+          </div>
+          <div id="route-result" style="margin-top:18px;display:none;"></div>
+          <div id="route-map" style="height:280px;border-radius:var(--radius-md);margin-top:14px;display:none;"></div>
+        </div>
       </div>
 
       <!-- TAB: ALERTS -->

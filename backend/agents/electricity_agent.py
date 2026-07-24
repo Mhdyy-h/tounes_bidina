@@ -24,6 +24,10 @@ GRID_RELIABILITY: dict[str, float] = {
     "tozeur":      0.74,
     "tataouine":   0.65,   # Remote, lower reliability
     "el_jem":      0.84,
+    "bulla_regia": 0.73,   # Rural Medjerda valley, older grid like ain_draham
+    "dougga":      0.76,   # Interior plateau, moderate
+    "ichkeul":     0.79,   # Near Bizerte/Menzel Bourguiba urban grid
+    "hammamet":    0.90,   # Major resort town, high infrastructure investment like nabeul
 }
 
 # Hotel backup power coverage (% hotels with generators or solar)
@@ -38,6 +42,10 @@ HOTEL_BACKUP_PCT: dict[str, float] = {
     "tozeur":      0.70,
     "tataouine":   0.55,
     "el_jem":      0.65,
+    "bulla_regia": 0.40,   # Few hotels, day-trip archaeological site
+    "dougga":      0.45,   # Few hotels, day-trip UNESCO site
+    "ichkeul":     0.40,   # Few hotels, nature reserve
+    "hammamet":    0.82,   # Large resort hotels typically carry generators
 }
 
 # Solar production index per zone (July, 0-1)
@@ -52,6 +60,10 @@ SOLAR_INDEX: dict[str, float] = {
     "tozeur":      0.95,   # Desert, maximum solar
     "tataouine":   0.92,
     "el_jem":      0.80,
+    "bulla_regia": 0.68,
+    "dougga":      0.70,
+    "ichkeul":     0.62,
+    "hammamet":    0.76,
 }
 
 # Known ongoing outages (simulated for demo — in production: from Famma Dhaw API)
@@ -93,6 +105,8 @@ class ElectricityRisk:
     hotel_availability_pct: float
     xai_explanation: str
     is_simulated: bool
+    outage_source: str                  # where active_outage actually came from
+    outage_reports: dict | None          # raw Famma Dhaw report counts, if real data was used
     updated_at: str
 
 
@@ -112,6 +126,7 @@ def _resilient_zones(zone_id: str, backup: float, solar: float) -> list[str]:
     resilience_map: dict[str, list[str]] = {
         "djerba":    ["Djerba Resort Zone (Zone Touristique)", "Houmt Souk centre"],
         "nabeul":    ["Hammamet Sud resort corridor", "Yasmine Hammamet"],
+        "hammamet":  ["Hammamet Sud resort corridor", "Yasmine Hammamet"],
         "tunis":     ["Les Berges du Lac", "Gammarth hotels"],
         "tozeur":    ["Tozeur hotel zone (Route Touristique)"],
         "sfax":      ["Sfax city centre", "Sfax business district"],
@@ -142,14 +157,48 @@ def compute_electricity_risk(
     zone_id: str,
     zone_name: str,
     temperature_c: float | None = None,
+    real_outage: dict | None = None,
 ) -> ElectricityRisk:
+    """
+    `real_outage`, if given, is the dict returned by
+    backend.famma_dhaw_client.get_zone_outage_status() - real, crowd-sourced
+    outage status. When present and matched, it REPLACES the simulated
+    active_outage flag; grid_reliability/hotel_backup/solar_index remain
+    simulated regardless (no real source for those), so `is_simulated` stays
+    True for the model overall, and `outage_source` names exactly what's real.
+    """
     temp = temperature_c or 30.0
     reliability = GRID_RELIABILITY.get(zone_id, 0.80) + random.uniform(-0.03, 0.03)
     reliability = max(0.0, min(1.0, reliability))
     backup = HOTEL_BACKUP_PCT.get(zone_id, 0.65)
     solar = SOLAR_INDEX.get(zone_id, 0.70)
-    outage_info = SIMULATED_OUTAGES.get(zone_id, {})
-    active_outage = outage_info.get("active", False)
+
+    outage_reports = None
+    if real_outage is not None and real_outage.get("status") != "no_data":
+        status = real_outage["status"]
+        active_outage = status in ("cut", "contested")
+        area_note = real_outage.get("famma_dhaw_name")
+        outage_affected_area = area_note if active_outage else None
+        estimated_recovery_h = None  # Famma Dhaw doesn't report recovery ETAs, only current status
+        match_note = "exact location" if real_outage.get("is_exact_location_match") else "nearest tracked municipality"
+        outage_source = (
+            f"REAL - Famma Dhaw community reports ({match_note}: {area_note}, "
+            f"{real_outage.get('off_count', 0)} cut-reports vs {real_outage.get('on_count', 0)} "
+            f"working-reports, last updated {real_outage.get('last_report')}). "
+            "Unofficial crowd-sourced data - cross-reference with STEG."
+        )
+        outage_reports = {
+            "off_count": real_outage.get("off_count"),
+            "on_count": real_outage.get("on_count"),
+            "status": status,
+            "last_report": real_outage.get("last_report"),
+        }
+    else:
+        outage_info = SIMULATED_OUTAGES.get(zone_id, {})
+        active_outage = outage_info.get("active", False)
+        outage_affected_area = outage_info.get("affected_area")
+        estimated_recovery_h = outage_info.get("estimated_recovery_h")
+        outage_source = "SIMULATED - no Famma Dhaw match for this zone, or fetch unavailable"
 
     # Peak load factor: summer heat → ACs → grid stress
     peak_factor = 1.0 + max(0, (temp - 30) / 30) * 0.4
@@ -181,11 +230,13 @@ def compute_electricity_risk(
         outage_probability=round(prob, 1),
         risk_level=level,
         active_outage=active_outage,
-        outage_affected_area=outage_info.get("affected_area"),
-        estimated_recovery_hours=outage_info.get("estimated_recovery_h"),
+        outage_affected_area=outage_affected_area,
+        estimated_recovery_hours=estimated_recovery_h,
         resilient_tourism_zones=resilient,
         hotel_availability_pct=round(hotel_avail, 1),
         xai_explanation=_xai_explanation(zone_id, factors, prob),
         is_simulated=True,
+        outage_source=outage_source,
+        outage_reports=outage_reports,
         updated_at=datetime.now(timezone.utc).isoformat(),
     )

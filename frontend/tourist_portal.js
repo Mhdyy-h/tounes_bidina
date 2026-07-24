@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   setupAlertsFilter();
   setupXaiSelector();
   setupPlannerForm();
+  setupRoutePlanner();
   initMap();
 });
 
@@ -615,4 +616,102 @@ function updateMapWithRisks(data) {
       markers[z.id] = mk;
     });
   }).catch(() => {});
+}
+
+// ─── Smart Route Planner (real OSRM routing + hazard-aware selection) ────────
+let routeMap = null;
+let routeLayer = null;
+
+async function setupRoutePlanner() {
+  const originSel = document.getElementById("route-origin");
+  const destSel = document.getElementById("route-destination");
+  if (!originSel || !destSel) return;
+
+  try {
+    const airportsRes = await fetch("/api/route/airports");
+    const airports = await airportsRes.json();
+
+    const airportOptions = airports.map((a) => `<option value="${a.id}">✈️ ${a.name}</option>`).join("");
+    const zoneOptions = allZones.map((z) => `<option value="${z.id}">${z.name}</option>`).join("");
+
+    originSel.innerHTML = airportOptions + zoneOptions;
+    destSel.innerHTML = zoneOptions;
+    if (allZones.length > 1) destSel.value = allZones[1].id;
+  } catch (err) {
+    console.error("Failed to load airports:", err);
+  }
+
+  document.getElementById("route-submit").addEventListener("click", runRoutePlanner);
+}
+
+function hazardListHtml(hazards) {
+  if (!hazards || hazards.length === 0) {
+    return `<span style="color:var(--green);">✅ No hazard zones on this route</span>`;
+  }
+  return hazards
+    .map((h) => `<span style="color:var(--orange);">⚠️ ${h.zone_name} (${h.risk_level}, ${h.distance_km}km from route)</span>`)
+    .join("<br>");
+}
+
+async function runRoutePlanner() {
+  const origin = document.getElementById("route-origin").value;
+  const destination = document.getElementById("route-destination").value;
+  const btn = document.getElementById("route-submit");
+  const resultEl = document.getElementById("route-result");
+  const mapEl = document.getElementById("route-map");
+
+  if (!origin || !destination) return;
+
+  const originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "⏳ Routing…";
+  resultEl.style.display = "none";
+
+  try {
+    const res = await fetch(`/api/route/plan?origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`);
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.detail || "Routing failed");
+    }
+    const data = await res.json();
+
+    resultEl.style.display = "block";
+    const chose = data.chose_alternative;
+    resultEl.innerHTML = `
+      <div style="padding:14px;border-radius:var(--radius-md);background:${chose ? "rgba(46,204,113,0.08)" : "var(--bg-card)"};border:1px solid ${chose ? "rgba(46,204,113,0.3)" : "var(--border)"};">
+        <div style="font-weight:700;margin-bottom:8px;">
+          ${chose ? "✅ Safer alternative route selected" : (data.has_alternative ? "ℹ️ Default route already avoids all hazard zones" : "ℹ️ Only one real route exists for this trip (no alternative available)")}
+        </div>
+        <div style="font-size:13px;color:var(--text-secondary);margin-bottom:6px;">
+          ${data.origin.name} → ${data.destination.name}
+        </div>
+        <div style="font-size:13px;">
+          <strong>${data.recommended_route.distance_km} km</strong> · <strong>${data.recommended_route.duration_min} min</strong>
+          ${chose ? `<span style="color:var(--orange);"> (+${data.extra_minutes} min vs. default)</span>` : ""}
+        </div>
+        <div style="margin-top:10px;font-size:13px;">${hazardListHtml(data.recommended_route.hazards)}</div>
+        ${chose ? `<div style="margin-top:8px;font-size:12px;color:var(--text-muted);">Default route would have crossed: ${hazardListHtml(data.hazards_avoided)}</div>` : ""}
+      </div>
+    `;
+
+    mapEl.style.display = "block";
+    if (!routeMap) {
+      routeMap = L.map("route-map");
+    }
+    if (routeLayer) {
+      routeLayer.remove();
+    }
+    const coords = data.recommended_route.geometry.coordinates.map((c) => [c[1], c[0]]);
+    routeLayer = L.polyline(coords, { color: "#3b9eff", weight: 4 }).addTo(routeMap);
+    routeMap.fitBounds(routeLayer.getBounds(), { padding: [20, 20] });
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "© OpenStreetMap contributors",
+    }).addTo(routeMap);
+  } catch (err) {
+    resultEl.style.display = "block";
+    resultEl.innerHTML = `<div style="color:var(--red);">❌ ${err.message}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+  }
 }

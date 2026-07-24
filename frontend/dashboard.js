@@ -24,7 +24,7 @@ let agentSummary = {};
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 async function init() {
-  await Promise.all([loadFireRisks(), loadNdviStatus()]);
+  await Promise.all([loadFireRisks(), loadNdviStatus(), loadHotelResilience(), setupNotifications()]);
   renderAgentOverview();
 }
 
@@ -214,3 +214,70 @@ init();
 setInterval(async () => {
   await loadFireRisks();
 }, 30000);
+
+// ─── Hotel Resilience ─────────────────────────────────────────────────────────
+async function loadHotelResilience() {
+  try {
+    const res = await fetch("/api/hotels/resilience/summary");
+    const s = await res.json();
+    document.getElementById("hstat-total").textContent = s.total_hotels;
+    document.getElementById("hstat-operational").textContent = s.total_hotels ? `${s.operational_pct}%` : "–";
+    document.getElementById("hstat-generator").textContent = s.total_hotels ? `${s.generator_coverage_pct}%` : "–";
+    document.getElementById("hstat-solar").textContent = s.total_hotels ? `${s.solar_coverage_pct}%` : "–";
+    document.getElementById("hstat-rooms").textContent = s.rooms_available_in_safe_zones;
+  } catch (err) {
+    console.error("Failed to load hotel resilience stats:", err);
+  }
+}
+
+// ─── Automatic Hotel Notifications ────────────────────────────────────────────
+async function setupNotifications() {
+  try {
+    const res = await fetch("/api/zones");
+    const zones = await res.json();
+    document.getElementById("notif-zone").innerHTML = zones.map((z) => `<option value="${z.id}">${z.name}</option>`).join("");
+  } catch (err) {
+    console.error("Failed to load zones for notifications:", err);
+  }
+
+  document.getElementById("notif-send").addEventListener("click", sendHazardNotifications);
+}
+
+async function sendHazardNotifications() {
+  const zoneId = document.getElementById("notif-zone").value;
+  const btn = document.getElementById("notif-send");
+  const resultEl = document.getElementById("notif-result");
+  const smtpStatusEl = document.getElementById("notif-smtp-status");
+
+  const originalLabel = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = "⏳ Sending…";
+
+  try {
+    const res = await fetch(`/api/notifications/send/${zoneId}`, { method: "POST" });
+    const data = await res.json();
+
+    smtpStatusEl.textContent = data.smtp_configured
+      ? "✅ SMTP configured — real emails sent"
+      : "⚠️ SMTP not configured — notifications logged, not sent (see README)";
+
+    if (data.sent.length === 0) {
+      resultEl.innerHTML = `<div style="padding:10px 14px;color:var(--text-secondary);font-size:13px;">${data.message}</div>`;
+    } else {
+      resultEl.innerHTML = data.sent
+        .map(
+          (s) => `
+        <div style="padding:10px 14px;margin-bottom:6px;border-radius:var(--radius-sm);background:var(--bg-card);border:1px solid var(--border);font-size:13px;">
+          <strong>${s.sent ? "✅" : "📝"} ${s.hotel_name}</strong> (${s.to_email}) — ${s.notification_title}
+          <div style="color:var(--text-muted);font-size:11px;margin-top:2px;">${s.detail}</div>
+        </div>`
+        )
+        .join("");
+    }
+  } catch (err) {
+    resultEl.innerHTML = `<div style="color:var(--red);">❌ Failed to send notifications.</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.textContent = originalLabel;
+  }
+}

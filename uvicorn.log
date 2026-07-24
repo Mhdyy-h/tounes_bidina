@@ -1,16 +1,52 @@
-INFO:     Started server process [21860]
+INFO:     Started server process [14764]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
-INFO:     127.0.0.1:61209 - "GET /api/ndvi/status HTTP/1.1" 200 OK
-INFO:     127.0.0.1:61209 - "GET /api/risk/stream HTTP/1.1" 200 OK
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
-INFO:     127.0.0.1:54153 - "GET /api/risk/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51434 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51434 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58687 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:59415 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58759 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58759 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59415 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59415 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58759 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58759 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59415 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59415 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58759 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58759 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59415 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59415 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62513 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58759 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62288 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62288 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62288 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62288 - "GET /static/map.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62288 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63974 - "GET /api/risk/stream HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62288 - "GET /favicon.ico HTTP/1.1" 404 Not Found
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
@@ -23,4 +59,2283 @@ FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
 FIRMS_API_KEY not set, using fallback active_fires_nearby=0
-INFO:     127.0.0.1:56246 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61948 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61948 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59993 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63925 - "GET /static/map.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63925 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63925 - "GET /api/risk/stream HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:65207 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:64551 - "GET /tourist-portal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57577 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52313 - "GET /static/tourist_portal.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52313 - "GET /api/zones HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57577 - "GET /api/agents/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57577 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52313 - "GET /api/agents/tourism/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:64551 - "GET /api/agents/tourism/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/tourism/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49280 - "GET /api/agents/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49280 - "GET /api/route/airports HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49280 - "GET /hotel-portal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /static/hotel_portal.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49280 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/zones HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "GET /api/hotels/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "GET /dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49280 - "GET /static/dashboard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /static/i18n.js HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /api/zones HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49280 - "GET /api/hotels/resilience/summary HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49280 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /tourist HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /static/tourist.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/zones HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:60397 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60397 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64551 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50120 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:50701 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:56439 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56439 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50915 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:58448 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50606 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50606 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58448 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58448 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50606 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50606 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58448 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58448 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50606 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50606 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58448 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:58448 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50606 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61433 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/tourist/dashboard/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/agents/xai/fire/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/risk HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/tourist/dashboard/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/agents/xai/fire/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/risk HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/tourist/dashboard/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61433 - "GET /api/agents/xai/fire/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62733 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65140 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:53957 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53957 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59575 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:65370 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59153 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54893 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54893 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59153 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65370 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65370 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59153 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54893 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54893 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59153 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65370 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65370 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59153 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54893 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:58870 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54893 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59153 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65370 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65370 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59153 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54893 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51930 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:50785 - "GET /api/route/plan?origin=enfidha_hammamet&destination=ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51977 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51977 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57388 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51450 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51193 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53754 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53754 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51193 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51450 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51450 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51193 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53754 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53754 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51193 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51450 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51450 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51193 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53754 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53754 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51193 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51450 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:53754 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51450 - "GET /api/tourist/dashboard/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51450 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53754 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57388 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+Ollama call failed (All connection attempts failed), using fallback explanation template
+INFO:     127.0.0.1:51193 - "POST /api/tourist/query HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51193 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:60987 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63801 - "GET /api/agents/xai/fire/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54042 - "GET /api/tourist/dashboard/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54042 - "GET /api/agents/xai/fire/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:59454 - "GET /api/risk HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:59454 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59454 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54042 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54552 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61471 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61471 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54552 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54552 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61471 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61471 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54552 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54552 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61471 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61471 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54552 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54552 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61471 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56633 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:56633 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57317 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:64689 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:64689 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54915 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:56230 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57629 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56427 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56427 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57629 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57629 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56427 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:56427 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57629 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57629 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56427 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56427 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57629 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56230 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57629 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56427 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:56427 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63256 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63322 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63322 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50509 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:55587 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57267 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60701 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60701 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57267 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55587 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55587 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57267 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60701 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:60701 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57267 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55587 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55587 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57267 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60701 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60701 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57267 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55587 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55587 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57267 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60701 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:60701 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:58311 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51324 - "GET /api/tourist/dashboard/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+Open-Meteo call failed (), using fallback weather values
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51324 - "GET /api/agents/xai/fire/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54010 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65049 - "GET /api/tourist/dashboard/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:65049 - "GET /api/agents/xai/fire/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54010 - "GET /api/risk HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54010 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54010 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65049 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51324 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58307 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65387 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65387 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58307 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51324 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51324 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58307 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65387 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65387 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58307 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51324 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51324 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58307 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65387 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65387 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58307 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51324 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51324 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58307 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65387 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62233 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62233 - "GET /api/tourist/dashboard/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62233 - "GET /api/agents/xai/fire/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:58416 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52912 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:50325 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57358 - "GET /tourist-portal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57358 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57417 - "GET /static/tourist_portal.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52342 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52342 - "GET /api/zones HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57417 - "GET /api/agents/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57417 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57358 - "GET /api/agents/tourism/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52342 - "GET /api/agents/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52639 - "GET /api/agents/tourism/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57905 - "GET /api/agents/tourism/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57905 - "GET /api/route/airports HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57905 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52342 - "GET /static/tourist.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52639 - "GET /static/i18n.js HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+Ollama call failed (All connection attempts failed), using fallback explanation template
+INFO:     127.0.0.1:52342 - "POST /api/tourist/query HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:52342 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52342 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52690 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52690 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52690 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52690 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:59301 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52690 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49850 - "GET /static/tourist_portal.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61787 - "GET /api/zones HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49850 - "GET /api/agents/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49850 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52690 - "GET /api/agents/tourism/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61787 - "GET /api/agents/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63844 - "GET /api/agents/tourism/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57248 - "GET /api/agents/tourism/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57248 - "GET /api/route/airports HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57026 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57026 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57626 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49920 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57115 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60226 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60226 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57115 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49920 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49920 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57115 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60226 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60226 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57115 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49920 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49920 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57115 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60226 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60226 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57115 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49920 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49920 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57115 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60226 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:52757 - "POST /api/notifications/send/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:53637 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:52715 - "GET /hotel-portal HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52715 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59987 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61452 - "GET /static/hotel_portal.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61452 - "GET /api/zones HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61452 - "GET /api/hotels/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61687 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49786 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+Open-Meteo call failed (Client error '429 Too Many Requests' for url 'https://api.open-meteo.com/v1/forecast?latitude=36.4225&longitude=9.2189&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Cprecipitation&wind_speed_unit=kmh&timezone=auto'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429), using fallback weather values
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63167 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "POST /api/hotels/declare HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/hotels/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:60660 - "GET /dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60660 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53930 - "GET /static/dashboard.js HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62095 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51054 - "GET /api/zones HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53930 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60660 - "GET /api/hotels/resilience/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60660 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:53930 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53870 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /tourist-portal HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57441 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /static/tourist_portal.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/zones HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57441 - "GET /static/style.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /static/i18n.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61757 - "GET /static/dashboard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61757 - "GET /api/zones HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61757 - "GET /api/agents/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51054 - "GET /api/risk HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61757 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61757 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51054 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61757 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61757 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+Open-Meteo call failed (Client error '429 Too Many Requests' for url 'https://api.open-meteo.com/v1/forecast?latitude=36.9544&longitude=8.7581&current=temperature_2m%2Crelative_humidity_2m%2Cwind_speed_10m%2Cprecipitation&wind_speed_unit=kmh&timezone=auto'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/429), using fallback weather values
+INFO:     127.0.0.1:57441 - "GET /api/hotels/resilience/summary HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57441 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62095 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56880 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63672 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63405 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63405 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62127 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63651 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57549 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50351 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50351 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57549 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63651 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63651 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57549 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50351 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50351 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57549 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63651 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63651 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57549 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50351 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50351 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57549 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63651 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63651 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57549 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50351 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:65520 - "POST /api/notifications/send/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51776 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59285 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62621 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62621 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52846 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61236 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55998 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55998 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61236 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61236 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61236 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55998 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55998 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61236 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61236 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55998 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55998 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61236 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61236 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55998 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:64752 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62697 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62697 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58481 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49247 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58256 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58256 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58256 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:58256 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58256 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58256 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49247 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54275 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58256 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61518 - "GET /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61518 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61518 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54760 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:62605 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62605 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56143 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:56255 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57378 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57378 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57378 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:57378 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57378 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57378 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56255 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57464 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57378 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:61803 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:54768 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58300 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51213 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:53216 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51213 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51213 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53216 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54768 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:52241 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:51758 - "GET /api/ndvi/status HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:63670 - "GET /api/risk HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:55320 - "GET /api/agents/tourism/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/emergency/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/flood/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /api/agents/water/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/tabarka HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/flood/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /api/agents/water/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /api/agents/electricity/dougga HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /api/agents/flood/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /api/agents/water/bulla_regia HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/bulla_regia HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+INFO:     127.0.0.1:49671 - "GET /api/agents/flood/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /api/agents/water/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /api/agents/electricity/ain_draham HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /api/agents/flood/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /api/agents/water/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/electricity/hammamet HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49671 - "GET /api/agents/flood/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /api/agents/water/ichkeul HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63670 - "GET /api/agents/electricity/ichkeul HTTP/1.1" 200 OK
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
+FIRMS_API_KEY not set, using fallback active_fires_nearby=0
