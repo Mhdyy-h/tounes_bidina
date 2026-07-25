@@ -76,5 +76,18 @@
       "en": "Hammamet is a well-known beach resort town famous for its golden sand beaches, jasmine-scented medina, and wide hotel offering — very popular with families.",
       "ar": "الحمامات مدينة منتجع ساحلي مشهورة بشواطئها الذهبية ومدينتها العتيقة المعطرة بالياسمين وتنوّع فنادقها، وهي وجهة مفضلة للعائلات."
     }
+  },
+  "siliana": {
+    "type": "archaeological",
+    "highlights": {
+      "fr": ["Table de Jugurtha (plateau rocheux, 1271 m)", "Site archéologique de Makthar (Mactaris)", "Festival Théâtre et Société (juin)", "Randonnée en zone rurale montagneuse"],
+      "en": ["Table de Jugurtha (flat-top mountain, 1271 m)", "Makthar (Mactaris) archaeological site", "Theatre and Society Festival (June)", "Hiking in rural mountainous terrain"],
+      "ar": ["مائدة يوغرطة (هضبة صخرية، 1271 م)", "موقع مكثر (مكتاريس) الأثري", "مهرجان المسرح والمجتمع (يونيو)", "المشي في المناطق الريفية الجبلية"]
+    },
+    "description": {
+      "fr": "Siliana est une ville de l'intérieur du pays, sur le versant occidental de la Dorsale tunisienne. La région abrite la Table de Jugurtha, un plateau montagneux escarpé qui servit de forteresse au roi numide Jugurtha face à Rome, ainsi que le site archéologique numide et romain de Makthar (forum, temple, thermes, aqueduc). Chaque juin, le Centre des arts dramatiques et scéniques de Siliana y organise le Festival Théâtre et Société.",
+      "en": "Siliana is an inland town on the western slope of Tunisia's Dorsale mountain range. The region is home to the Table de Jugurtha, a steep flat-topped mountain once used as a fortress by Numidian King Jugurtha against Rome, as well as the Numidian and Roman archaeological site of Makthar (forum, temple, baths, aqueduct). Each June, the town's own arts centre hosts the Theatre and Society Festival.",
+      "ar": "سليانة مدينة داخلية تقع على السفح الغربي لسلسلة الظهرة التونسية. تضم المنطقة مائدة يوغرطة، وهي هضبة جبلية شديدة الانحدار استُخدمت كحصن من قبل الملك النوميدي يوغرطة في مواجهة روما، إضافة إلى موقع مكثر الأثري النوميدي والروماني (الفوروم، المعبد، الحمامات، القناة المائية). وفي شهر يونيو من كل عام، ينظّم مركز الفنون الدرامية والركحية بسليانة مهرجان المسرح والمجتمع."
+    }
   }
 }

@@ -42,7 +42,7 @@
     {
       "id": "dougga",
       "name": "Dougga",
-      "zone_id": "beja",
+      "zone_id": "dougga",
       "type": "archaeological_site",
       "lat": 36.422,
       "lon": 9.219,
@@ -50,6 +50,58 @@
       "activities": ["history", "archaeology", "hiking", "photography"],
       "amenities": {"hotels": 2, "restaurants": 3, "hospitals": 0},
       "image_tag": "dougga_ruins",
+      "region": "Northwest"
+    },
+    {
+      "id": "bulla_regia_villas",
+      "name": "Bulla Regia Underground Villas",
+      "zone_id": "bulla_regia",
+      "type": "archaeological_site",
+      "lat": 36.5567,
+      "lon": 8.7583,
+      "description": "Roman villas built underground to escape summer heat, with remarkably preserved mosaics",
+      "activities": ["history", "archaeology", "photography", "guided tours"],
+      "amenities": {"hotels": 1, "restaurants": 2, "hospitals": 0},
+      "image_tag": "underground_villas",
+      "region": "Northwest"
+    },
+    {
+      "id": "ichkeul_national_park",
+      "name": "Ichkeul National Park",
+      "zone_id": "ichkeul",
+      "type": "nature",
+      "lat": 37.1235,
+      "lon": 9.6548,
+      "description": "UNESCO/Ramsar wetland reserve — lake and marshes hosting hundreds of thousands of migratory birds",
+      "activities": ["bird watching", "hiking", "photography", "nature tours"],
+      "amenities": {"hotels": 1, "restaurants": 1, "hospitals": 0},
+      "image_tag": "wetland_park",
+      "region": "North"
+    },
+    {
+      "id": "table_de_jugurtha",
+      "name": "Table de Jugurtha",
+      "zone_id": "siliana",
+      "type": "nature",
+      "lat": 36.0764,
+      "lon": 8.6883,
+      "description": "Dramatic flat-topped mountain (1271m) used as a fortress by Numidian King Jugurtha against Rome (112-105 BC)",
+      "activities": ["hiking", "photography", "history"],
+      "amenities": {"hotels": 0, "restaurants": 0, "hospitals": 0},
+      "image_tag": "mountain_plateau",
+      "region": "Northwest"
+    },
+    {
+      "id": "makthar",
+      "name": "Makthar (Mactaris)",
+      "zone_id": "siliana",
+      "type": "archaeological_site",
+      "lat": 35.8631,
+      "lon": 9.1967,
+      "description": "Numidian and Roman archaeological site — forum, Temple of Liber Pater, Roman baths, and aqueduct",
+      "activities": ["history", "archaeology", "photography", "guided tours"],
+      "amenities": {"hotels": 1, "restaurants": 2, "hospitals": 0},
+      "image_tag": "makthar_ruins",
       "region": "Northwest"
     },
     {
@@ -81,7 +133,7 @@
     {
       "id": "hammamet_beach",
       "name": "Hammamet Beach",
-      "zone_id": "nabeul",
+      "zone_id": "hammamet",
       "type": "beach",
       "lat": 36.399,
       "lon": 10.618,
@@ -162,9 +214,10 @@
   ],
   "festivals": [
     {"name": "Tabarka Jazz Festival", "month": 7, "zone_id": "tabarka", "type": "music"},
-    {"name": "Dougga Roman Theatre Festival", "month": 7, "zone_id": "beja", "type": "culture"},
+    {"name": "Dougga Roman Theatre Festival", "month": 7, "zone_id": "dougga", "type": "culture"},
     {"name": "El Jem International Symphonic Music Festival", "month": 7, "zone_id": "el_jem", "type": "music"},
-    {"name": "Hammamet International Festival", "month": 8, "zone_id": "nabeul", "type": "arts"},
-    {"name": "Sahara Festival Douz", "month": 12, "zone_id": "tozeur", "type": "culture"}
+    {"name": "Hammamet International Festival", "month": 8, "zone_id": "hammamet", "type": "arts"},
+    {"name": "Sahara Festival Douz", "month": 12, "zone_id": "tozeur", "type": "culture"},
+    {"name": "Festival Théâtre et Société de Siliana", "month": 6, "zone_id": "siliana", "type": "culture"}
   ]
 }

@@ -21,11 +21,12 @@ SIMULATED_OUTAGES dict where a zone maps to real coverage):
 - Cached 10 minutes, one request fetches all ~376 zones - a respectful,
   low-frequency client against someone's small community project, not
   infra-grade polling.
-- 3 of our 6 zones (Dougga, Bulla Regia, Ichkeul) are archaeological/nature
+- 3 of our 7 zones (Dougga, Bulla Regia, Ichkeul) are archaeological/nature
   sites with no residential neighborhood of their own in Famma Dhaw's data, so
   they're mapped to their nearest tracked municipality. That's an
   approximation, explicitly flagged via `is_exact_location_match`, not the
-  status of the exact site.
+  status of the exact site. Siliana is the exception among the newer zones -
+  Famma Dhaw tracks "Siliana Ville" directly, so that mapping is exact.
 """
 
 import logging
@@ -52,6 +53,7 @@ ZONE_SLUG_MAP: dict[str, tuple[str, bool]] = {
     "dougga":      ("teboursouk", False),      # nearest tracked town, ~7km from the ruins
     "bulla_regia": ("jendouba-ville", False),  # nearest tracked town, ~15km from the ruins
     "ichkeul":     ("mateur", False),          # nearest tracked town, adjacent to the lake
+    "siliana":     ("siliana-ville", True),    # exact match - "Siliana Ville" is directly tracked
 }
 
 _cache = TTLCache(ttl_seconds=600)

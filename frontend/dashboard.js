@@ -24,7 +24,10 @@ let agentSummary = {};
 
 // ─── Init ─────────────────────────────────────────────────────────────────────
 async function init() {
-  await Promise.all([loadFireRisks(), loadNdviStatus(), loadHotelResilience(), setupNotifications()]);
+  await Promise.all([
+    loadFireRisks(), loadNdviStatus(), loadHotelResilience(), setupNotifications(),
+    loadCheckpointsQr(),
+  ]);
   renderAgentOverview();
 }
 
@@ -241,6 +244,37 @@ async function setupNotifications() {
   }
 
   document.getElementById("notif-send").addEventListener("click", sendHazardNotifications);
+}
+
+// ─── Reward Checkpoints (printable QR codes) ─────────────────────────────────
+const CHECKPOINT_ICONS = { monument: "🏛️", activity: "🌲", airport: "✈️", hotel: "🏨" };
+
+async function loadCheckpointsQr() {
+  const grid = document.getElementById("checkpoint-qr-grid");
+  try {
+    const res = await fetch("/api/rewards/checkpoints");
+    const checkpoints = await res.json();
+    if (checkpoints.length === 0) {
+      grid.innerHTML = `<p class="hint">No checkpoints seeded yet.</p>`;
+      return;
+    }
+    grid.innerHTML = checkpoints
+      .map(
+        (c) => `
+      <div class="reward-card" style="text-align:center;">
+        <img src="/api/rewards/checkpoints/${c.id}/qrcode.png" alt="QR — ${c.name}"
+             style="width:140px;height:140px;margin:0 auto 10px;border-radius:8px;background:#fff;padding:8px;" />
+        <div class="reward-card-title">${CHECKPOINT_ICONS[c.type] || "📍"} ${c.name}</div>
+        <div class="reward-card-partner">${c.zone_id} · +${c.points_value} pts · ${c.geofence_radius_m}m geofence</div>
+        <a href="${c.checkin_path}" target="_blank" style="font-size:11px;color:var(--accent);">🔗 Open check-in link (for testing — still enforces the geofence)</a>
+        ${c.is_approximate_location ? '<div class="reward-card-desc">⚠️ Seeded coordinates are an approximation of this site — replace with the exact entrance GPS before printing for real deployment.</div>' : ""}
+      </div>`
+      )
+      .join("");
+  } catch (err) {
+    console.error("Failed to load reward checkpoints:", err);
+    grid.innerHTML = `<p class="hint">Error loading checkpoints.</p>`;
+  }
 }
 
 async function sendHazardNotifications() {

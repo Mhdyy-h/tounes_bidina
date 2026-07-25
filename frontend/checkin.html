@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunisia Guardian AI — Check-in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <style>
+    .checkin-wrapper {
+      min-height: calc(100vh - 62px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(59,158,255,0.06) 0%, transparent 60%);
+    }
+    .checkin-spinner {
+      width: 36px; height: 36px; margin: 18px auto 4px;
+      border: 3px solid var(--border-strong);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🛡 Tunisia Guardian AI</h1>
+      <div class="tagline" data-i18n="checkinTagline">Check-in — Tourist Rewards</div>
+    </div>
+  </header>
+
+  <div class="checkin-wrapper">
+    <div class="card tourist-card" id="checkin-card" style="text-align:center;">
+      <h2 id="checkin-title" data-i18n="checkinTitle">Checking you in…</h2>
+      <div class="checkin-spinner" id="checkin-spinner"></div>
+      <p id="checkin-status" class="hint" data-i18n="checkinLocating">Getting your location…</p>
+
+      <div class="result" id="checkin-result">
+        <span class="badge" id="checkin-badge"></span>
+        <p id="checkin-message" style="margin-top:10px;"></p>
+        <p id="checkin-balance" class="xp"></p>
+        <div style="margin-top:16px; display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+          <a href="/rewards" class="btn-submit" style="text-decoration:none; display:inline-block; width:auto; padding:10px 18px;" data-i18n="checkinViewRewards">View my rewards</a>
+          <a href="/tourist-portal" style="color:var(--text-secondary); font-size:13px; align-self:center;" data-i18n="checkinBackPortal">Back to tourist portal</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/sidebar.js"></script>
+  <script src="/static/tourist_id.js"></script>
+  <script src="/static/chat_widget.js"></script>
+  <script src="/static/checkin.js"></script>
+</body>
+</html>

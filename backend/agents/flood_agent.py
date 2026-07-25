@@ -35,6 +35,7 @@ HISTORICAL_FLOOD_FREQ: dict[str, float] = {
     "dougga":      0.20,   # UNESCO hilltop site, ~571m elevation - naturally low flood exposure
     "ichkeul":     0.35,   # Lake/wetland basin (Bizerte) - surrounding low ground floods, not the lake itself
     "hammamet":    0.30,   # Coastal Nabeul governorate - same historical flood exposure as nabeul
+    "siliana":     0.25,   # Interior Dorsale-mountain plateau, dryland cereal region - occasional oued flash floods
 }
 
 # Terrain elevation class per zone: "low" | "mid" | "high"
@@ -53,6 +54,7 @@ TERRAIN_CLASS: dict[str, str] = {
     "dougga":      "high",  # Hilltop/plateau site
     "ichkeul":     "low",   # Lake basin
     "hammamet":    "low",   # Coastal
+    "siliana":     "mid",   # Interior plateau on the western Dorsale range
 }
 
 # Drainage quality index per zone (0=poor,1=excellent)
@@ -71,6 +73,7 @@ DRAINAGE_INDEX: dict[str, float] = {
     "dougga":      0.55,   # Elevated terrain aids natural runoff
     "ichkeul":     0.45,   # Wetland buffers some, but surrounding roads poorly drained
     "hammamet":    0.55,   # Resort-town infrastructure, similar to nabeul
+    "siliana":     0.40,   # Rural interior governorate, modest infrastructure investment
 }
 
 
@@ -125,6 +128,7 @@ def _flooded_roads(zone_id: str, prob: float) -> list[str]:
         "dougga":      ["MC65 Téboursouk–Dougga approach road"],
         "ichkeul":     ["RN11 Bizerte–Mateur lakeside section"],
         "hammamet":    ["GP1 Hammamet–Nabeul interchange", "Avenue de la République (Hammamet centre)"],
+        "siliana":     ["RN12 Siliana–Gaâfour section", "MC71 Makthar approach road"],
     }
     roads = road_map.get(zone_id, [f"Secondary road in {zone_id.replace('_', ' ').title()}"])
     if prob >= 70:

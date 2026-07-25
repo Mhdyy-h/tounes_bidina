@@ -1,0 +1,58 @@
+[
+  {
+    "id": "hammamet_free_coffee",
+    "zone_id": "hammamet",
+    "partner_name": "Hammamet partner hotel (demo)",
+    "title": "Free coffee",
+    "description": "One free coffee at a participating hotel lobby cafe.",
+    "points_cost": 50
+  },
+  {
+    "id": "hammamet_spa_discount",
+    "zone_id": "hammamet",
+    "partner_name": "Hammamet partner spa (demo)",
+    "title": "15% off a spa treatment",
+    "description": "Discount on a single spa treatment at a participating hotel.",
+    "points_cost": 120
+  },
+  {
+    "id": "tabarka_dive_discount",
+    "zone_id": "tabarka",
+    "partner_name": "Tabarka diving center (demo)",
+    "title": "10% off a diving session",
+    "description": "Discount on a guided coral-reef diving session.",
+    "points_cost": 80
+  },
+  {
+    "id": "ain_draham_water_bottle",
+    "zone_id": "ain_draham",
+    "partner_name": "Aïn Draham eco-lodge (demo)",
+    "title": "Free refillable water bottle",
+    "description": "A reusable water bottle, supporting single-use plastic reduction in the forest reserve.",
+    "points_cost": 30
+  },
+  {
+    "id": "dougga_audio_guide",
+    "zone_id": "dougga",
+    "partner_name": "Dougga site partner (demo)",
+    "title": "Free audio guide pass",
+    "description": "One free self-guided audio tour of the Dougga ruins.",
+    "points_cost": 100
+  },
+  {
+    "id": "ichkeul_binoculars",
+    "zone_id": "ichkeul",
+    "partner_name": "Ichkeul park visitor center (demo)",
+    "title": "Free binocular rental (1 hour)",
+    "description": "One hour of binocular rental for migratory bird watching.",
+    "points_cost": 40
+  },
+  {
+    "id": "bulla_regia_guide_discount",
+    "zone_id": "bulla_regia",
+    "partner_name": "Bulla Regia site partner (demo)",
+    "title": "20% off a guided tour",
+    "description": "Discount on a licensed guide for the underground villas.",
+    "points_cost": 90
+  }
+]

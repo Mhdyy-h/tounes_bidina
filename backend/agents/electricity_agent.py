@@ -28,6 +28,7 @@ GRID_RELIABILITY: dict[str, float] = {
     "dougga":      0.76,   # Interior plateau, moderate
     "ichkeul":     0.79,   # Near Bizerte/Menzel Bourguiba urban grid
     "hammamet":    0.90,   # Major resort town, high infrastructure investment like nabeul
+    "siliana":     0.75,   # Interior governorate capital, moderate grid like dougga/bulla_regia
 }
 
 # Hotel backup power coverage (% hotels with generators or solar)
@@ -46,6 +47,7 @@ HOTEL_BACKUP_PCT: dict[str, float] = {
     "dougga":      0.45,   # Few hotels, day-trip UNESCO site
     "ichkeul":     0.40,   # Few hotels, nature reserve
     "hammamet":    0.82,   # Large resort hotels typically carry generators
+    "siliana":     0.35,   # Few hotels, small interior governorate capital
 }
 
 # Solar production index per zone (July, 0-1)
@@ -64,6 +66,7 @@ SOLAR_INDEX: dict[str, float] = {
     "dougga":      0.70,
     "ichkeul":     0.62,
     "hammamet":    0.76,
+    "siliana":     0.72,   # Interior central Tunisia, strong summer sun
 }
 
 # Known ongoing outages (simulated for demo — in production: from Famma Dhaw API)

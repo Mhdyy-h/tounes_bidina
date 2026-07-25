@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tunisia Guardian AI — Rewards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <h1>🛡 Tunisia Guardian AI</h1>
+      <div class="tagline" data-i18n="rewardsTagline">Earn points by visiting, redeem them for perks</div>
+    </div>
+  </header>
+
+  <div class="dashboard">
+    <div class="dashboard-header">
+      <h2 data-i18n="navRewards">Rewards</h2>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-value" id="rw-balance">–</div>
+        <div class="stat-label" data-i18n="rewardsBalanceLabel">Points balance</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="rw-earned">–</div>
+        <div class="stat-label" data-i18n="rewardsEarnedLabel">Total earned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="rw-spent">–</div>
+        <div class="stat-label" data-i18n="rewardsSpentLabel">Total spent</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:24px;">
+      <h2 style="font-size:14px;" data-i18n="rewardsHowTitle">How to earn points</h2>
+      <p class="hint" data-i18n="rewardsHowText">
+        Scan the QR code posted at a partner site (monument, airport, activity) to earn points.
+        Your position is confirmed on the spot.
+      </p>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+      <div class="section-title" style="font-size:16px; font-weight:800;" data-i18n="rewardsCatalogTitle">Available rewards</div>
+      <select id="rw-zone-filter" style="padding:8px 12px;border-radius:var(--radius-sm);background:var(--bg-base);color:var(--text-primary);border:1px solid var(--border-strong);"></select>
+    </div>
+    <div class="rewards-grid" id="rw-catalog">
+      <div class="skeleton" style="height:150px;border-radius:12px;"></div>
+      <div class="skeleton" style="height:150px;border-radius:12px;"></div>
+      <div class="skeleton" style="height:150px;border-radius:12px;"></div>
+    </div>
+    <p id="rw-demo-note" class="dashboard-footnote" data-i18n="rewardsDemoNote" style="margin:8px 0 24px;"></p>
+
+    <div style="margin:28px 0 14px;">
+      <div class="section-title" style="font-size:16px;font-weight:800;" data-i18n="rewardsHistoryTitle">Check-in history</div>
+    </div>
+    <table class="dashboard-table">
+      <thead>
+        <tr>
+          <th data-i18n="tableZone">Checkpoint</th>
+          <th>+pts</th>
+          <th data-i18n="tableUpdated">Date</th>
+        </tr>
+      </thead>
+      <tbody id="rw-history-body">
+        <tr><td colspan="3" class="loading-row" data-i18n="rewardsNoHistory">No check-ins yet.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="rw-modal-backdrop" id="rw-modal-backdrop">
+    <div class="rw-modal">
+      <h3 id="rw-modal-title" data-i18n="rewardsCodeTitle">Reward redeemed!</h3>
+      <p id="rw-modal-message"></p>
+      <div class="rw-modal-code" id="rw-modal-code"></div>
+      <p class="hint" id="rw-modal-hint" data-i18n="rewardsCodeHint">Show this code to the partner to claim it.</p>
+      <button class="btn-submit" id="rw-modal-close" style="margin-top:10px;" data-i18n="rewardsCodeClose">Close</button>
+    </div>
+  </div>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/sidebar.js"></script>
+  <script src="/static/tourist_id.js"></script>
+  <script src="/static/chat_widget.js"></script>
+  <script src="/static/rewards.js"></script>
+</body>
+</html>

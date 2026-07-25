@@ -289,6 +289,11 @@ button:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
   margin-top: 5px;
 }
 
+.hint {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
 /* ─── Result Box ─────────────────────────────────────────────────── */
 .result {
   margin-top: 20px;
@@ -1437,4 +1442,80 @@ html[dir="rtl"] .chat-msg.assistant {
     right: 12px;
     left: 12px;
   }
+}
+
+/* ─── Tourist Rewards ────────────────────────────────────────────── */
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.reward-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: var(--transition);
+}
+.reward-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+
+.reward-card-title { font-weight: 700; font-size: 14px; }
+.reward-card-partner { font-size: 11px; color: var(--text-muted); }
+.reward-card-desc { font-size: 12px; color: var(--text-secondary); flex: 1; }
+.reward-card-cost { font-size: 13px; font-weight: 700; color: var(--accent); }
+
+.reward-card-redeem {
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: linear-gradient(135deg, #3b9eff, #1668cc);
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  cursor: pointer;
+}
+.reward-card-redeem:disabled {
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  cursor: not-allowed;
+}
+
+.rw-modal-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 400;
+  align-items: center;
+  justify-content: center;
+}
+.rw-modal-backdrop.open { display: flex; }
+
+.rw-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  max-width: 340px;
+  width: calc(100% - 32px);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.rw-modal-code {
+  font-family: 'Courier New', monospace;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--accent);
+  background: var(--bg-base);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  margin: 14px 0;
 }

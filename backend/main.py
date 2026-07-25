@@ -4,11 +4,13 @@ import logging
 import os
 from dataclasses import asdict
 from datetime import date, datetime, timezone
+from io import BytesIO
 from pathlib import Path
 
-from fastapi import BackgroundTasks, FastAPI, HTTPException
+import qrcode
+from fastapi import BackgroundTasks, FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import FileResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 
 from backend import scenario
@@ -29,12 +31,17 @@ from backend.llm_agent import explain_and_recommend
 from backend.ml_risk import compute_composite_risk, source_datasets_descriptor
 from backend.models import (
     AgentStatusCard,
+    CheckinRequest,
+    CheckinResponse,
+    CheckpointPublic,
     ChatRequest,
     ChatResponse,
     ElectricityRiskResponse,
     EmergencyPlanResponse,
     FloodRiskResponse,
     ForecastDay,
+    FulfillRequest,
+    FulfillResponse,
     HotelAlternativeResponse,
     HotelDeclaration,
     HotelResilienceStats,
@@ -43,6 +50,11 @@ from backend.models import (
     NdviStatus,
     NdviZoneStatus,
     NotificationModel,
+    PointsBalanceResponse,
+    PointsTransaction,
+    RedeemRequest,
+    RedeemResponse,
+    RewardCatalogItem,
     RiskFactors,
     RoutePlanResponse,
     ScenarioOverride,
@@ -61,6 +73,7 @@ from backend.models import (
 from backend.ndvi_cache import load_real_cache, refresh_real_ndvi
 from backend.risk_forecast import compute_forecast
 from backend.route_planner import AIRPORTS, plan_route
+from backend import rewards_service
 from backend.weather_client import get_forecast, get_weather
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -70,9 +83,59 @@ FRONTEND_DIR = BASE_DIR / "frontend"
 app = FastAPI(title="Tunisia Guardian AI — Multi-Agent Platform")
 
 
+def _seed_rewards_data() -> None:
+    """
+    Idempotent - db.upsert_checkpoint() never overwrites an existing
+    checkpoint's signing secret on conflict, so re-running this on every
+    startup does not invalidate already-printed QR codes.
+    """
+    with open(DATA_DIR / "checkpoints_seed.json", encoding="utf-8") as f:
+        for cp in json.load(f):
+            db.upsert_checkpoint({**cp, "secret": rewards_service.generate_secret()})
+
+    with open(DATA_DIR / "rewards_catalog_seed.json", encoding="utf-8") as f:
+        for reward in json.load(f):
+            db.upsert_reward(reward)
+
+
+def _seed_siliana_hotels() -> None:
+    """
+    Two real hotel names for Siliana governorate, verified via web search
+    (Hôtel Le Zama: Petit Futé + ChercheInfo Tunisia business directories;
+    Domaine du Mouton Vert: TripAdvisor listing, 8 rooms). The operational
+    status fields below are NOT live telemetry - no real-time data source
+    exists for either - they use the same defaults any hotel gets on first
+    self-declaration (utilities available, no backup confirmed). Real staff
+    can overwrite this any time via /hotel-portal. Only inserted if the name
+    doesn't already exist for this zone, so a real edit made after seeding
+    is never clobbered by a later server restart.
+    """
+    existing_names = {h["hotel_name"] for h in db.list_hotels("siliana")}
+    seed_hotels = [
+        {"hotel_name": "Hôtel Le Zama", "rooms_available": None},
+        {"hotel_name": "Domaine du Mouton Vert", "rooms_available": 8},
+    ]
+    for h in seed_hotels:
+        if h["hotel_name"] in existing_names:
+            continue
+        db.upsert_hotel("siliana", h["hotel_name"], {
+            "electricity_available": True,
+            "water_available": True,
+            "internet_available": True,
+            "generator_available": False,
+            "battery_backup": False,
+            "solar_panels": False,
+            "remaining_autonomy_hours": None,
+            "rooms_available": h["rooms_available"],
+            "contact_email": None,
+        })
+
+
 @app.on_event("startup")
 async def _startup():
     db.init_db()
+    _seed_rewards_data()
+    _seed_siliana_hotels()
 
 
 app.add_middleware(
@@ -223,6 +286,17 @@ async def serve_dashboard():
 @app.get("/hotel-portal")
 async def serve_hotel_portal():
     return FileResponse(FRONTEND_DIR / "hotel_portal.html")
+
+
+@app.get("/rewards")
+async def serve_rewards():
+    return FileResponse(FRONTEND_DIR / "rewards.html")
+
+
+@app.get("/checkin/{checkpoint_id}")
+async def serve_checkin(checkpoint_id: str):
+    """Landing page a checkpoint's printed QR code opens on the tourist's phone."""
+    return FileResponse(FRONTEND_DIR / "checkin.html")
 
 
 # ─── Existing Risk API ────────────────────────────────────────────────────────
@@ -1043,3 +1117,170 @@ async def api_chat(body: ChatRequest):
         [m.model_dump() for m in body.messages], zones_context, hotel_summary, lang
     )
     return ChatResponse(reply=reply, used_llm=used_llm, lang=lang)
+
+
+# ─── Tourist Rewards (QR check-ins, points, redemption) ───────────────────
+
+def _get_points_balance(tourist_id: str) -> int:
+    return db.total_points_earned(tourist_id) - db.total_points_spent(tourist_id)
+
+
+@app.get("/api/rewards/checkpoints", response_model=list[CheckpointPublic])
+async def api_rewards_checkpoints(zone_id: str | None = None):
+    """
+    checkin_path carries the same signed check-in link a printed QR at the
+    site would encode - exposing it here just gives the app a second way to
+    reach it (e.g. 'check in now' button when a tourist is already at the
+    site). It doesn't weaken anything: the geofence check still requires
+    the tourist's live GPS to actually be at the checkpoint regardless of
+    how they arrived at this link.
+    """
+    return [
+        CheckpointPublic(
+            id=c["id"], zone_id=c["zone_id"], name=c["name"], type=c["type"],
+            lat=c["lat"], lon=c["lon"], geofence_radius_m=c["geofence_radius_m"],
+            points_value=c["points_value"],
+            is_approximate_location=bool(c["is_approximate_location"]),
+            checkin_path=rewards_service.build_checkin_path(c["id"], c["secret"]),
+        )
+        for c in db.list_checkpoints(zone_id)
+    ]
+
+
+@app.get("/api/rewards/checkpoints/{checkpoint_id}/qrcode.png")
+async def api_rewards_checkpoint_qrcode(checkpoint_id: str, request: Request):
+    """
+    Printable QR code for a checkpoint - the ministry/hotel would post this
+    at the physical location. Encodes an absolute URL to /checkin/{id} with
+    this checkpoint's static signature (see backend/rewards_service.py for
+    why the signature is static rather than time-rotating).
+    """
+    checkpoint = db.get_checkpoint(checkpoint_id)
+    if checkpoint is None:
+        raise HTTPException(status_code=404, detail=f"Unknown checkpoint_id: {checkpoint_id}")
+
+    path = rewards_service.build_checkin_path(checkpoint_id, checkpoint["secret"])
+    url = f"{str(request.base_url).rstrip('/')}{path}"
+    img = qrcode.make(url)
+    buf = BytesIO()
+    img.save(buf, format="PNG")
+    return Response(content=buf.getvalue(), media_type="image/png")
+
+
+@app.post("/api/rewards/checkin/{checkpoint_id}", response_model=CheckinResponse)
+async def api_rewards_checkin(checkpoint_id: str, body: CheckinRequest):
+    """
+    Validates, in order: (1) the QR signature wasn't forged/hand-edited,
+    (2) the tourist's live GPS position is within the checkpoint's geofence,
+    (3) the per-tourist cooldown on this checkpoint has elapsed. Any failure
+    returns ok=False with a specific reason - never a silent/generic error -
+    and still reports the tourist's current balance either way.
+    """
+    checkpoint = db.get_checkpoint(checkpoint_id)
+    if checkpoint is None:
+        raise HTTPException(status_code=404, detail=f"Unknown checkpoint_id: {checkpoint_id}")
+
+    balance = _get_points_balance(body.tourist_id)
+
+    if not rewards_service.verify_signature(checkpoint_id, checkpoint["secret"], body.sig):
+        return CheckinResponse(
+            ok=False, points_awarded=0, new_balance=balance,
+            reason="This check-in link is invalid or was tampered with.",
+        )
+
+    within_radius, distance_m = rewards_service.check_geofence(checkpoint, body.lat, body.lon)
+    if not within_radius:
+        return CheckinResponse(
+            ok=False, points_awarded=0, new_balance=balance,
+            reason=f"You're about {distance_m:.0f}m from {checkpoint['name']} - move within "
+            f"{checkpoint['geofence_radius_m']:.0f}m and try again.",
+        )
+
+    last_checkin = db.last_checkin_at(body.tourist_id, checkpoint_id)
+    allowed, hours_remaining = rewards_service.check_cooldown(last_checkin)
+    if not allowed:
+        return CheckinResponse(
+            ok=False, points_awarded=0, new_balance=balance,
+            reason=f"You already checked in at {checkpoint['name']} recently - try again in "
+            f"about {hours_remaining}h.",
+        )
+
+    db.record_point_transaction(body.tourist_id, checkpoint_id, checkpoint["points_value"])
+    new_balance = balance + checkpoint["points_value"]
+    return CheckinResponse(
+        ok=True, points_awarded=checkpoint["points_value"], new_balance=new_balance,
+        reason=f"Checked in at {checkpoint['name']}! +{checkpoint['points_value']} points.",
+    )
+
+
+@app.get("/api/rewards/balance/{tourist_id}", response_model=PointsBalanceResponse)
+async def api_rewards_balance(tourist_id: str):
+    earned = db.total_points_earned(tourist_id)
+    spent = db.total_points_spent(tourist_id)
+    transactions = db.list_transactions(tourist_id, limit=20)
+    return PointsBalanceResponse(
+        tourist_id=tourist_id,
+        balance=earned - spent,
+        total_earned=earned,
+        total_spent=spent,
+        recent_transactions=[
+            PointsTransaction(
+                checkpoint_id=t["checkpoint_id"], points=t["points"], earned_at=t["earned_at"]
+            )
+            for t in transactions
+        ],
+    )
+
+
+@app.get("/api/rewards/catalog", response_model=list[RewardCatalogItem])
+async def api_rewards_catalog(zone_id: str | None = None):
+    return [
+        RewardCatalogItem(
+            id=r["id"], zone_id=r["zone_id"], partner_name=r["partner_name"], title=r["title"],
+            description=r.get("description"), points_cost=r["points_cost"],
+            is_demo_data=bool(r["is_demo_data"]),
+        )
+        for r in db.list_rewards(zone_id)
+    ]
+
+
+@app.post("/api/rewards/redeem", response_model=RedeemResponse)
+async def api_rewards_redeem(body: RedeemRequest):
+    reward = db.get_reward(body.reward_id)
+    if reward is None or not reward["active"]:
+        return RedeemResponse(
+            ok=False, redemption_code=None,
+            reason="This reward doesn't exist or is no longer active.",
+            new_balance=_get_points_balance(body.tourist_id),
+        )
+
+    balance = _get_points_balance(body.tourist_id)
+    if balance < reward["points_cost"]:
+        return RedeemResponse(
+            ok=False, redemption_code=None,
+            reason=f"Not enough points - you have {balance}, this reward costs "
+            f"{reward['points_cost']}.",
+            new_balance=balance,
+        )
+
+    code = rewards_service.generate_redemption_code()
+    db.create_redemption(body.tourist_id, body.reward_id, reward["points_cost"], code)
+    return RedeemResponse(
+        ok=True, redemption_code=code,
+        reason=f"Redeemed: {reward['title']}. Show this code to {reward['partner_name']}.",
+        new_balance=balance - reward["points_cost"],
+    )
+
+
+@app.post("/api/rewards/redemptions/{code}/fulfill", response_model=FulfillResponse)
+async def api_rewards_fulfill(code: str, body: FulfillRequest):
+    """Partner/hotel-side: marks a redemption code used so it can't be redeemed twice."""
+    redemption = db.get_redemption(code)
+    if redemption is None:
+        return FulfillResponse(ok=False, reason="No redemption found with this code.")
+    if redemption["fulfilled_at"] is not None:
+        return FulfillResponse(
+            ok=False, reason=f"This code was already used on {redemption['fulfilled_at']}."
+        )
+    db.fulfill_redemption(code, body.fulfilled_by)
+    return FulfillResponse(ok=True, reason="Redemption confirmed and marked as used.")

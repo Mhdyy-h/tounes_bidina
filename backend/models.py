@@ -396,3 +396,77 @@ class ChatResponse(BaseModel):
     reply: str
     used_llm: bool
     lang: str
+
+
+# ─── Tourist Rewards (QR check-ins, points, redemption) ────────────────────
+
+class CheckpointPublic(BaseModel):
+    id: str
+    zone_id: str
+    name: str
+    type: str  # "monument" | "activity" | "airport" | "hotel"
+    lat: float
+    lon: float
+    geofence_radius_m: float
+    points_value: int
+    is_approximate_location: bool
+    checkin_path: str
+
+
+class CheckinRequest(BaseModel):
+    tourist_id: str
+    lat: float
+    lon: float
+    sig: str
+
+
+class CheckinResponse(BaseModel):
+    ok: bool
+    points_awarded: int
+    new_balance: int
+    reason: str
+
+
+class PointsTransaction(BaseModel):
+    checkpoint_id: str
+    points: int
+    earned_at: str
+
+
+class PointsBalanceResponse(BaseModel):
+    tourist_id: str
+    balance: int
+    total_earned: int
+    total_spent: int
+    recent_transactions: list[PointsTransaction]
+
+
+class RewardCatalogItem(BaseModel):
+    id: str
+    zone_id: str
+    partner_name: str
+    title: str
+    description: str | None
+    points_cost: int
+    is_demo_data: bool
+
+
+class RedeemRequest(BaseModel):
+    tourist_id: str
+    reward_id: str
+
+
+class RedeemResponse(BaseModel):
+    ok: bool
+    redemption_code: str | None
+    reason: str
+    new_balance: int | None
+
+
+class FulfillRequest(BaseModel):
+    fulfilled_by: str | None = None
+
+
+class FulfillResponse(BaseModel):
+    ok: bool
+    reason: str

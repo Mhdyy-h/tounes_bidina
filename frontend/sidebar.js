@@ -13,6 +13,7 @@
 const SIDEBAR_LINKS = [
   { href: "/", icon: "🗺️", key: "navMap" },
   { href: "/tourist-portal", icon: "🌴", key: "navPortal" },
+  { href: "/rewards", icon: "🏆", key: "navRewards" },
   { href: "/hotel-portal", icon: "🏨", key: "navHotel" },
   { href: "/dashboard", icon: "🛡", key: "navDashboard" },
   { href: "/tourist", icon: "📋", key: "navTourist" },

@@ -100,6 +100,19 @@
     </div>
     <div id="notif-result" style="margin-top:12px;"></div>
 
+    <!-- Reward Checkpoints (printable QR codes) -->
+    <div style="margin:28px 0 14px;">
+      <div class="section-title" style="font-size:16px;font-weight:800;">🎯 Reward Checkpoints — Printable QR Codes</div>
+      <div class="section-subtitle" style="font-size:12px;color:var(--text-muted);margin-top:4px;">
+        Print and post each QR at its physical location. Scanning it only awards points once the
+        tourist's live GPS is confirmed within range — see /rewards and backend/rewards_service.py.
+      </div>
+    </div>
+    <div class="rewards-grid" id="checkpoint-qr-grid">
+      <div class="skeleton" style="height:240px;border-radius:12px;"></div>
+      <div class="skeleton" style="height:240px;border-radius:12px;"></div>
+    </div>
+
     <p class="dashboard-footnote" data-i18n="dashboardFootnote" style="margin-top:24px;">
       Flood, water, and electricity columns use simulated data — clearly labeled. Fire risk uses live weather (Open-Meteo), satellite fire hotspots (NASA FIRMS), and NDVI (real MODIS where available). Agent count: 7 (Fire + Flood + Water + Electricity + Tourism + Emergency + XAI).
     </p>

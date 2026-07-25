@@ -97,3 +97,38 @@ form.addEventListener("submit", async (e) => {
 });
 
 loadZones();
+
+// ─── Reward redemption code verification ─────────────────────────────────────
+const redeemCodeInput = document.getElementById("redeem-code-input");
+const redeemFulfilledBy = document.getElementById("redeem-fulfilled-by");
+const redeemVerifyBtn = document.getElementById("redeem-verify-btn");
+const redeemResultEl = document.getElementById("redeem-verify-result");
+
+redeemVerifyBtn.addEventListener("click", async () => {
+  const code = redeemCodeInput.value.trim().toUpperCase();
+  if (!code) return;
+
+  const originalLabel = redeemVerifyBtn.textContent;
+  redeemVerifyBtn.disabled = true;
+  redeemVerifyBtn.textContent = "⏳ Checking…";
+
+  try {
+    const res = await fetch(`/api/rewards/redemptions/${encodeURIComponent(code)}/fulfill`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fulfilled_by: redeemFulfilledBy.value.trim() || null }),
+    });
+    const data = await res.json();
+    redeemResultEl.innerHTML = `<div class="result ${data.ok ? "safe" : "unsafe"}" style="display:block;">${
+      data.ok ? "✅" : "❌"
+    } ${data.reason}</div>`;
+    if (data.ok) {
+      redeemCodeInput.value = "";
+    }
+  } catch (err) {
+    redeemResultEl.innerHTML = `<div class="result unsafe" style="display:block;">❌ Verification failed — please try again.</div>`;
+  } finally {
+    redeemVerifyBtn.disabled = false;
+    redeemVerifyBtn.textContent = originalLabel;
+  }
+});

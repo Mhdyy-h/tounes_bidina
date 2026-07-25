@@ -1,0 +1,90 @@
+[
+  {
+    "id": "tabarka_fort",
+    "zone_id": "tabarka",
+    "name": "Genoese Fort, Tabarka",
+    "type": "monument",
+    "lat": 36.9544,
+    "lon": 8.7581,
+    "geofence_radius_m": 300,
+    "points_value": 20,
+    "is_approximate_location": true
+  },
+  {
+    "id": "ain_draham_forest_trail",
+    "zone_id": "ain_draham",
+    "name": "Kroumirie Forest Trailhead, Aïn Draham",
+    "type": "activity",
+    "lat": 36.7756,
+    "lon": 8.6836,
+    "geofence_radius_m": 400,
+    "points_value": 20,
+    "is_approximate_location": true
+  },
+  {
+    "id": "bulla_regia_site",
+    "zone_id": "bulla_regia",
+    "name": "Bulla Regia Archaeological Site",
+    "type": "monument",
+    "lat": 36.5567,
+    "lon": 8.7583,
+    "geofence_radius_m": 300,
+    "points_value": 25,
+    "is_approximate_location": true
+  },
+  {
+    "id": "dougga_ruins",
+    "zone_id": "dougga",
+    "name": "Dougga UNESCO Roman Ruins",
+    "type": "monument",
+    "lat": 36.4225,
+    "lon": 9.2189,
+    "geofence_radius_m": 300,
+    "points_value": 30,
+    "is_approximate_location": true
+  },
+  {
+    "id": "ichkeul_park",
+    "zone_id": "ichkeul",
+    "name": "Ichkeul National Park Visitor Center",
+    "type": "activity",
+    "lat": 37.1235,
+    "lon": 9.6548,
+    "geofence_radius_m": 400,
+    "points_value": 20,
+    "is_approximate_location": true
+  },
+  {
+    "id": "hammamet_medina",
+    "zone_id": "hammamet",
+    "name": "Hammamet Medina",
+    "type": "monument",
+    "lat": 36.4000,
+    "lon": 10.6167,
+    "geofence_radius_m": 300,
+    "points_value": 20,
+    "is_approximate_location": true
+  },
+  {
+    "id": "tabarka_ain_draham_airport",
+    "zone_id": "tabarka",
+    "name": "Tabarka-Aïn Draham Airport",
+    "type": "airport",
+    "lat": 36.9787,
+    "lon": 8.8778,
+    "geofence_radius_m": 1500,
+    "points_value": 15,
+    "is_approximate_location": false
+  },
+  {
+    "id": "siliana_city_demo",
+    "zone_id": "siliana",
+    "name": "Siliana City Center",
+    "type": "activity",
+    "lat": 36.0819,
+    "lon": 9.3747,
+    "geofence_radius_m": 4000,
+    "points_value": 25,
+    "is_approximate_location": true
+  }
+]

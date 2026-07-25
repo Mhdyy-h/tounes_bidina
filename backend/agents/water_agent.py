@@ -27,6 +27,7 @@ RESERVOIR_LEVELS: dict[str, float] = {
     "dougga":      55.0,  # Interior plateau, moderate
     "ichkeul":     64.0,  # Adjacent to Lake Ichkeul / Bizerte water resources
     "hammamet":    50.0,  # Coastal Nabeul governorate, similar to nabeul
+    "siliana":     46.0,  # Interior agricultural governorate (Barrage de Siliana dam basin)
 }
 
 # Tourism demand multiplier (high season = July)
@@ -45,6 +46,7 @@ TOURISM_DEMAND: dict[str, float] = {
     "dougga":      1.0,   # Popular UNESCO day-trip site
     "ichkeul":     0.7,   # Nature reserve, low overnight tourism
     "hammamet":    2.3,   # One of Tunisia's largest beach resort towns
+    "siliana":     0.6,   # Remote interior archaeological/hiking area, low overnight demand
 }
 
 # Known leak/loss index per zone (0=none, 1=severe infrastructure loss)
@@ -63,6 +65,7 @@ LEAK_INDEX: dict[str, float] = {
     "dougga":      0.27,
     "ichkeul":     0.24,
     "hammamet":    0.19,  # Resort-town infrastructure, similar to nabeul
+    "siliana":     0.30,  # Rural interior infrastructure, similar to bulla_regia/dougga
 }
 
 

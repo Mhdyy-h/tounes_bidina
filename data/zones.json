@@ -21,7 +21,7 @@
     "lat": 36.5567,
     "lon": 8.7583,
     "type": "archaeological",
-    "neighbors": ["ain_draham", "dougga"]
+    "neighbors": ["ain_draham", "dougga", "siliana"]
   },
   {
     "id": "dougga",
@@ -29,7 +29,15 @@
     "lat": 36.4225,
     "lon": 9.2189,
     "type": "archaeological",
-    "neighbors": ["bulla_regia", "ichkeul"]
+    "neighbors": ["bulla_regia", "ichkeul", "siliana"]
+  },
+  {
+    "id": "siliana",
+    "name": "Siliana",
+    "lat": 36.0819,
+    "lon": 9.3747,
+    "type": "archaeological",
+    "neighbors": ["dougga", "bulla_regia"]
   },
   {
     "id": "ichkeul",

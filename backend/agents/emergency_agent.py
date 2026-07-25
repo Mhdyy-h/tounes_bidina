@@ -40,6 +40,7 @@ BASE_RESPONSE_TIME: dict[str, dict[str, int]] = {
     "dougga":      {"firefighters": 30, "ambulances": 28, "helicopters": 38},  # Rural, elevated/harder access
     "ichkeul":     {"firefighters": 20, "ambulances": 18, "helicopters": 30},  # Near Bizerte/Menzel Bourguiba
     "hammamet":    {"firefighters": 14, "ambulances": 12, "helicopters": 32},  # Well-connected coastal town
+    "siliana":     {"firefighters": 28, "ambulances": 25, "helicopters": 36},  # Interior governorate capital, rural access roads
 }
 
 
@@ -127,7 +128,7 @@ def _compute_allocations(
         ))
 
     # Helicopter — remote zones or critical fire
-    if fire_score >= 70 or (flood_score >= 70 and zone_id in ("ain_draham", "beja", "tabarka", "bulla_regia")):
+    if fire_score >= 70 or (flood_score >= 70 and zone_id in ("ain_draham", "beja", "tabarka", "bulla_regia", "siliana")):
         allocations.append(ResourceAllocation(
             resource_type="Helicopter",
             recommended_units=1,
@@ -184,7 +185,7 @@ def _intervention_sequence(fire_score: float, flood_score: float) -> list[str]:
 
 def _containment_estimate(score: float, zone_id: str) -> float:
     """Rough estimate of hours to achieve containment based on risk score."""
-    remote_bonus = 1.5 if zone_id in ("tataouine", "tozeur", "ain_draham", "bulla_regia", "dougga") else 1.0
+    remote_bonus = 1.5 if zone_id in ("tataouine", "tozeur", "ain_draham", "bulla_regia", "dougga", "siliana") else 1.0
     if score < 30:
         return 0.0
     if score < 50:
