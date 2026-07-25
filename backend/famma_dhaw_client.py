@@ -97,7 +97,7 @@ async def fetch_all_zones() -> dict[str, dict] | None:
 
 
 async def get_zone_outage_status(zone_id: str) -> dict | None:
-    """Returns real outage status for a Tunisia Guardian AI zone, or None if
+    """Returns real outage status for a Tunisna zone, or None if
     unavailable (no mapping for this zone, fetch failed, or slug not found in
     their data) - callers must fall back to simulated data in that case."""
     mapping = ZONE_SLUG_MAP.get(zone_id)

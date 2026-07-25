@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tunisia Guardian AI — Rewards</title>
+  <title>Tunisna — Rewards</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
   <link rel="stylesheet" href="/static/style.css" />
@@ -11,7 +11,7 @@
 <body>
   <header>
     <div>
-      <h1>🛡 Tunisia Guardian AI</h1>
+      <h1>🛡 Tunisna</h1>
       <div class="tagline" data-i18n="rewardsTagline">Earn points by visiting, redeem them for perks</div>
     </div>
   </header>
@@ -58,18 +58,20 @@
     <div style="margin:28px 0 14px;">
       <div class="section-title" style="font-size:16px;font-weight:800;" data-i18n="rewardsHistoryTitle">Check-in history</div>
     </div>
-    <table class="dashboard-table">
-      <thead>
-        <tr>
-          <th data-i18n="tableZone">Checkpoint</th>
-          <th>+pts</th>
-          <th data-i18n="tableUpdated">Date</th>
-        </tr>
-      </thead>
-      <tbody id="rw-history-body">
-        <tr><td colspan="3" class="loading-row" data-i18n="rewardsNoHistory">No check-ins yet.</td></tr>
-      </tbody>
-    </table>
+    <div class="table-scroll">
+      <table class="dashboard-table">
+        <thead>
+          <tr>
+            <th data-i18n="tableZone">Checkpoint</th>
+            <th>+pts</th>
+            <th data-i18n="tableUpdated">Date</th>
+          </tr>
+        </thead>
+        <tbody id="rw-history-body">
+          <tr><td colspan="3" class="loading-row" data-i18n="rewardsNoHistory">No check-ins yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
   <div class="rw-modal-backdrop" id="rw-modal-backdrop">

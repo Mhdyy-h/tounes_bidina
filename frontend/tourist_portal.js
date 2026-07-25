@@ -1,5 +1,5 @@
 /**
- * Tourist Portal JS — Tunisia Guardian AI Multi-Agent Platform
+ * Tourist Portal JS — Tunisna Multi-Agent Platform
  * Handles: zone selection, agent dashboard, destination grid, trip planner,
  *           alerts feed, XAI panel, Leaflet map integration
  */

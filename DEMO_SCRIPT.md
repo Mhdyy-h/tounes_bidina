@@ -1,4 +1,4 @@
-# Script de démo — Tunisia Guardian AI (3-4 minutes)
+# Script de démo — Tunisna (3-4 minutes)
 
 Basé sur ce qui est réellement construit : un classifieur XGBoost **réellement
 entraîné** sur un vrai jeu de données d'incendies (Algerian Forest Fires Dataset,
@@ -24,7 +24,7 @@ ferme une zone sans alternative, soit on ne réagit pas assez vite. Ça coûte d
 et ça coûte des touristes."
 
 ## 2. La carte, état normal (40s)
-Montrer l'onglet 1. "Voici Tunisia Guardian AI : une carte temps réel de 6 zones
+Montrer l'onglet 1. "Voici Tunisna : une carte temps réel de 6 zones
 touristiques — Tabarka, Aïn Draham, Bulla Regia, Dougga, Ichkeul, Hammamet. Chaque
 zone a un score de risque de 0 à 100. Ce score n'est pas une formule inventée : c'est
 un modèle XGBoost entraîné sur des données réelles d'incendies méditerranéens,

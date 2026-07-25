@@ -1,5 +1,5 @@
 /**
- * Dashboard JS — Tunisia Guardian AI Multi-Agent Operations Dashboard
+ * Dashboard JS — Tunisna Multi-Agent Operations Dashboard
  * Loads: fire risk table, flood/water/electricity agent data, agent health overview
  */
 

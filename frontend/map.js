@@ -11,6 +11,15 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: "&copy; OpenStreetMap contributors",
 }).addTo(map);
 
+// Leaflet measures #map's size once, right here - but sidebar.js applies
+// body.has-sidebar's margin-left:220px slightly later (its own
+// DOMContentLoaded handler), so the map's cached size goes stale and
+// tiles render past the actual visible area, overflowing behind/past the
+// sidebar. Recalculate once the sidebar has settled, and again on any
+// later resize (window resize, phone rotation, sidebar open/close).
+window.addEventListener("load", () => map.invalidateSize());
+window.addEventListener("resize", () => map.invalidateSize());
+
 const markers = {};
 
 function factsHtml(zone) {

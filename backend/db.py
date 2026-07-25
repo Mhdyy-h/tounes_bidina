@@ -1,6 +1,6 @@
 """
 SQLite persistence - the first genuine use case for a database in this project.
-Everything else in Tunisia Guardian AI is computed live or cached from external
+Everything else in Tunisna is computed live or cached from external
 APIs; hotel operational status is different: it's real data hotels themselves
 declare over time, and it must persist across requests and server restarts.
 That's exactly the case the original build explicitly deferred a database for

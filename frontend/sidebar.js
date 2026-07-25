@@ -36,7 +36,7 @@ function injectSidebar() {
   sidebar.innerHTML = `
     <div class="sidebar-brand">
       <span class="sidebar-brand-icon">🛡</span>
-      <span class="sidebar-brand-text">Tunisia Guardian AI</span>
+      <span class="sidebar-brand-text">Tunisna</span>
     </div>
     <div class="sidebar-links">
       ${SIDEBAR_LINKS.map(

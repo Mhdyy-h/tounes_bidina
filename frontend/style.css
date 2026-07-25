@@ -1097,7 +1097,38 @@ button:hover:not(:disabled) { opacity: 0.88; transform: translateY(-1px); }
   .destination-grid { grid-template-columns: 1fr; }
   .planner-form { grid-template-columns: 1fr; }
   .zone-selector { grid-template-columns: repeat(2, 1fr); }
-  .controls { flex-wrap: wrap; }
+
+  /* .controls is reused as the map's scenario toolbar AND the dashboard's
+     notification bar - on narrow screens both become a clean vertical
+     stack of full-width tap targets instead of a cramped multi-row wrap. */
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+  .controls > button,
+  .controls > select {
+    width: 100%;
+  }
+  .legend {
+    margin-left: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  /* Wide multi-column tables (dashboard, hotel portal, rewards history)
+     scroll within their own box instead of forcing the whole page sideways. */
+  .table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .toggle-grid { grid-template-columns: 1fr; }
 }
 
 /* ─── Hotel Portal ───────────────────────────────────────────────── */

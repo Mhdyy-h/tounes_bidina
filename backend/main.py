@@ -80,7 +80,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 FRONTEND_DIR = BASE_DIR / "frontend"
 
-app = FastAPI(title="Tunisia Guardian AI — Multi-Agent Platform")
+app = FastAPI(title="Tunisna — Multi-Agent Platform")
 
 
 def _seed_rewards_data() -> None:
@@ -996,7 +996,7 @@ def _build_notification_email_body(notif, zone: Zone) -> str:
         f"Recommended actions:\n{actions}\n\n"
         f"Live risk map / current status: {map_url}\n\n"
         "---\n"
-        "Tunisia Guardian AI - automated hazard monitoring.\n"
+        "Tunisna - automated hazard monitoring.\n"
         "This is an automated message from the multi-agent monitoring platform."
     )
 
@@ -1054,7 +1054,7 @@ async def api_send_hotel_notifications(zone_id: str):
 
     results = []
     for notif in hotel_notifs:
-        subject = f"[Tunisia Guardian AI] {notif.severity.upper()} - {notif.title}"
+        subject = f"[Tunisna] {notif.severity.upper()} - {notif.title}"
         body = _build_notification_email_body(notif, zone)
         for hotel in hotels_with_email:
             send_result = email_client.send_notification_email(hotel["contact_email"], subject, body)
