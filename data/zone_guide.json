@@ -1,0 +1,80 @@
+{
+  "tabarka": {
+    "type": "coastal_forest",
+    "highlights": {
+      "fr": ["Récifs de corail et plongée", "Fort génois (XVIe siècle)", "Festival de jazz (juillet)", "Côte boisée de pins"],
+      "en": ["Coral reefs and diving", "Genoese fort (16th century)", "Jazz festival (July)", "Pine-covered coastline"],
+      "ar": ["الشعاب المرجانية والغوص", "القلعة الجنوية (القرن 16)", "مهرجان الجاز (يوليو)", "ساحل مغطى بأشجار الصنوبر"]
+    },
+    "description": {
+      "fr": "Tabarka est une ville côtière du nord-ouest tunisien, connue pour ses récifs coralliens, son fort génois et son festival de jazz estival. C'est l'une des meilleures destinations de plongée du pays.",
+      "en": "Tabarka is a coastal town in northwest Tunisia, known for its coral reefs, Genoese fort, and summer jazz festival. It's one of the country's best diving destinations.",
+      "ar": "طبرقة مدينة ساحلية في شمال غرب تونس، تشتهر بشعابها المرجانية وقلعتها الجنوية ومهرجان الجاز الصيفي. تُعد من أفضل وجهات الغوص في البلاد."
+    }
+  },
+  "ain_draham": {
+    "type": "forest",
+    "highlights": {
+      "fr": ["Forêts de chênes-lièges", "Randonnée en montagne", "Climat frais (Kroumirie)", "Observation de sangliers"],
+      "en": ["Cork-oak forests", "Mountain hiking", "Cool climate (Kroumirie)", "Wild boar spotting"],
+      "ar": ["غابات الفلين", "رياضة المشي في الجبال", "مناخ بارد (خمير)", "مراقبة الخنازير البرية"]
+    },
+    "description": {
+      "fr": "Aïn Draham est une ville de montagne dans les monts de Kroumirie, entourée de forêts de chênes-lièges. Son climat frais et humide en fait une destination prisée pour la randonnée.",
+      "en": "Aïn Draham is a mountain town in the Kroumirie range, surrounded by cork-oak forests. Its cool, humid climate makes it a popular hiking destination.",
+      "ar": "عين دراهم مدينة جبلية في سلسلة جبال خمير، تحيط بها غابات الفلين. مناخها البارد الرطب يجعلها وجهة مفضلة لمحبي المشي في الطبيعة."
+    }
+  },
+  "bulla_regia": {
+    "type": "archaeological",
+    "highlights": {
+      "fr": ["Villas romaines souterraines", "Mosaïques bien préservées", "Site peu fréquenté", "Architecture unique en Afrique du Nord"],
+      "en": ["Underground Roman villas", "Well-preserved mosaics", "Uncrowded site", "Architecture unique in North Africa"],
+      "ar": ["فيلات رومانية تحت الأرض", "فسيفساء محفوظة جيدًا", "موقع أثري هادئ", "عمارة فريدة في شمال إفريقيا"]
+    },
+    "description": {
+      "fr": "Bulla Regia est un site archéologique romain célèbre pour ses villas construites en sous-sol afin d'échapper à la chaleur estivale, avec des mosaïques remarquablement conservées.",
+      "en": "Bulla Regia is a Roman archaeological site famous for its underground villas, built to escape the summer heat, with remarkably well-preserved mosaics.",
+      "ar": "بولا ريجيا موقع أثري روماني يشتهر بفيلاته المبنية تحت الأرض هروبًا من حرارة الصيف، وتضم فسيفساء محفوظة بشكل استثنائي."
+    }
+  },
+  "dougga": {
+    "type": "archaeological",
+    "highlights": {
+      "fr": ["Site UNESCO", "Théâtre romain", "Capitole antique", "Ville romaine la mieux conservée d'Afrique du Nord"],
+      "en": ["UNESCO World Heritage site", "Roman theatre", "Ancient capitol", "Best-preserved Roman town in North Africa"],
+      "ar": ["موقع تراث عالمي لليونسكو", "المسرح الروماني", "الكابيتول القديم", "أفضل مدينة رومانية محفوظة في شمال إفريقيا"]
+    },
+    "description": {
+      "fr": "Dougga est un site archéologique classé au patrimoine mondial de l'UNESCO, considéré comme la ville romaine la mieux préservée d'Afrique du Nord, perché sur une colline.",
+      "en": "Dougga is a UNESCO World Heritage archaeological site, widely considered the best-preserved Roman town in North Africa, perched on a hilltop.",
+      "ar": "دوقة موقع أثري مصنّف ضمن التراث العالمي لليونسكو، ويُعتبر أفضل مدينة رومانية محفوظة في شمال إفريقيا، ويقع فوق تلة مرتفعة."
+    }
+  },
+  "ichkeul": {
+    "type": "wetland",
+    "highlights": {
+      "fr": ["Parc national UNESCO/Ramsar", "Lac et zones humides", "Sanctuaire d'oiseaux migrateurs", "Observation ornithologique"],
+      "en": ["UNESCO/Ramsar national park", "Lake and wetlands", "Migratory bird sanctuary", "Bird watching"],
+      "ar": ["حديقة وطنية مصنفة يونسكو/رامسار", "بحيرة وأراضٍ رطبة", "محمية للطيور المهاجرة", "مراقبة الطيور"]
+    },
+    "description": {
+      "fr": "Ichkeul est un parc national classé UNESCO et zone humide Ramsar, centré sur un lac qui accueille chaque année des centaines de milliers d'oiseaux migrateurs.",
+      "en": "Ichkeul is a UNESCO-listed national park and Ramsar wetland, centered on a lake that hosts hundreds of thousands of migratory birds each year.",
+      "ar": "بحيرة إشكل حديقة وطنية مصنّفة لدى اليونسكو وأرض رطبة ضمن اتفاقية رامسار، وتتوسطها بحيرة تستقبل سنويًا مئات الآلاف من الطيور المهاجرة."
+    }
+  },
+  "hammamet": {
+    "type": "coastal",
+    "highlights": {
+      "fr": ["Plages de sable doré", "Médina historique", "Vie nocturne et spas", "Destination familiale populaire"],
+      "en": ["Golden sand beaches", "Historic medina", "Nightlife and spas", "Popular family destination"],
+      "ar": ["شواطئ ذهبية", "المدينة العتيقة التاريخية", "الحياة الليلية والمنتجعات الصحية", "وجهة عائلية شهيرة"]
+    },
+    "description": {
+      "fr": "Hammamet est une station balnéaire réputée pour ses plages de sable doré, sa médina parfumée au jasmin et sa large offre hôtelière, très populaire auprès des familles.",
+      "en": "Hammamet is a well-known beach resort town famous for its golden sand beaches, jasmine-scented medina, and wide hotel offering — very popular with families.",
+      "ar": "الحمامات مدينة منتجع ساحلي مشهورة بشواطئها الذهبية ومدينتها العتيقة المعطرة بالياسمين وتنوّع فنادقها، وهي وجهة مفضلة للعائلات."
+    }
+  }
+}

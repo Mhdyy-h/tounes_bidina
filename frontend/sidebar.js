@@ -73,7 +73,7 @@ function injectSidebar() {
   backdrop.addEventListener("click", closeSidebar);
 
   const langBtn = document.getElementById("lang-toggle");
-  langBtn.addEventListener("click", () => setLang(getLang() === "fr" ? "en" : "fr"));
+  langBtn.addEventListener("click", cycleLang);
 
   applyTranslations();
 }

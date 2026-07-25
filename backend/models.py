@@ -378,3 +378,21 @@ class RoutePlanResponse(BaseModel):
     recommended_route: RouteOption
     extra_minutes: float
     hazards_avoided: list[RouteHazard]
+
+
+# ─── AI Tourist Guide Chat ──────────────────────────────────────────────────
+
+class ChatMessage(BaseModel):
+    role: str  # "user" | "assistant"
+    content: str
+
+
+class ChatRequest(BaseModel):
+    messages: list[ChatMessage]
+    lang: str = "fr"  # "fr" | "en" | "ar"
+
+
+class ChatResponse(BaseModel):
+    reply: str
+    used_llm: bool
+    lang: str

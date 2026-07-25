@@ -23,11 +23,14 @@ from backend import db
 from backend import email_client
 from backend.famma_dhaw_client import get_zone_outage_status
 from backend.firms_client import get_active_fires
+from backend.chat_agent import chat_reply
 from backend.hotel_service import compute_resilience_stats, find_hotel_alternative
 from backend.llm_agent import explain_and_recommend
 from backend.ml_risk import compute_composite_risk, source_datasets_descriptor
 from backend.models import (
     AgentStatusCard,
+    ChatRequest,
+    ChatResponse,
     ElectricityRiskResponse,
     EmergencyPlanResponse,
     FloodRiskResponse,
@@ -998,3 +1001,45 @@ async def api_send_hotel_notifications(zone_id: str):
         "hotels_notified": len(hotels_with_email),
         "sent": results,
     }
+
+
+# ─── AI Tourist Guide Chat ─────────────────────────────────────────────────
+
+@app.post("/api/chat", response_model=ChatResponse)
+async def api_chat(body: ChatRequest):
+    """
+    Conversational tourist guide, grounded in this platform's own live data
+    (per-zone fire risk, hotel resilience stats, static site descriptions)
+    instead of freeform LLM invention. If the local Ollama service is
+    unreachable, chat_reply() returns an explicit "guide unavailable"
+    message rather than silently failing or claiming an AI answer that
+    didn't happen - same honesty discipline as the rest of this project.
+    """
+    if not body.messages:
+        raise HTTPException(status_code=400, detail="messages must not be empty")
+
+    lang = body.lang if body.lang in ("fr", "en", "ar") else "fr"
+
+    zones = _load_zones()
+    fire_risks = await _compute_all_risks()
+    zones_context = [
+        {
+            "id": z.id,
+            "name": z.name,
+            "type": z.type,
+            "fire_risk_score": r.risk_score,
+            "fire_risk_level": r.risk_level,
+        }
+        for z, r in zip(zones, fire_risks)
+    ]
+
+    zone_risk_by_id = {r.zone_id: r.risk_score for r in fire_risks}
+    hotels = db.list_hotels()
+    hotel_summary = compute_resilience_stats(
+        hotels, [{"id": z.id, "name": z.name} for z in zones], zone_risk_by_id
+    )
+
+    reply, used_llm = await chat_reply(
+        [m.model_dump() for m in body.messages], zones_context, hotel_summary, lang
+    )
+    return ChatResponse(reply=reply, used_llm=used_llm, lang=lang)
